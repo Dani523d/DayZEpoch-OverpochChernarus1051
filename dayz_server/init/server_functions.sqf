@@ -1,3 +1,15 @@
+//### BEGIN MODIFIED CODE: antihack
+
+/* read config file */
+call compile preprocessFileLineNumbers "\z\addons\dayz_server\config.sqf";
+
+/* load infistar if enabled */
+if (DZE_ENABLE_INFISTAR) then {
+	[] spawn {[] execVM "\z\addons\dayz_server\addons\antihack\AH.sqf";};
+};
+
+//### END MODIFIED CODE: antihack
+
 waituntil {!isnil "bis_fnc_init"};
 
 BIS_MPF_remoteExecutionServer = {
