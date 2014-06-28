@@ -121,4 +121,7 @@ call compile preprocessFileLineNumbers "custom\snap_build\compiles.sqf";
 // fast trading
 call compile preprocessFileLineNumbers "overwrites\player_traderMenuHive.sqf";
 
+//service point
+if (!isDedicated) then {execVM "addons\service_point\service_point.sqf";};
+
 //### END INSERTED CODE: loan addons
