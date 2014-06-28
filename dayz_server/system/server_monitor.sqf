@@ -379,7 +379,12 @@ if (isServer && isNil "sm_done") then {
 		endLoadingScreen;
 	};
 
-	allowConnection = true;	
+	//### BEGIN MODIFIED CODE: dzai
+	if (DZE_ENABLE_DZAI) then {
+		call compile preprocessFileLineNumbers "\z\addons\dayz_server\DZAI\init\dzai_initserver.sqf";
+	};
+	//### END MODIFIED CODE: dzai
+	allowConnection = true;
 	sm_done = true;
 	publicVariable "sm_done";
 };
