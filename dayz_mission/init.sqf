@@ -100,6 +100,9 @@ execVM "\z\addons\dayz_code\external\DynamicWeatherEffects.sqf";
 
 //### BEGIN INSERTED CODE: load addons 
 
+//load config
+call compile preprocessFileLineNumbers "config.sqf";
+
 //choose spawn location & loadout
 call compile preprocessFileLineNumbers "addons\spawnplus\init.sqf";
 
@@ -114,5 +117,8 @@ dayz_spaceInterrupt = compile preprocessFileLineNumbers "overwrites\dayz_spaceIn
 
 // snap build
 call compile preprocessFileLineNumbers "custom\snap_build\compiles.sqf";
+
+// fast trading
+call compile preprocessFileLineNumbers "overwrites\player_traderMenuHive.sqf";
 
 //### END INSERTED CODE: loan addons
