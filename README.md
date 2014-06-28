@@ -13,7 +13,9 @@ FEATURES:
     * increased building limit
     * disabled spawning as zombie
     * self transfusion
+    * one step building
 - More Snapping Objects (Mikeeey)
+- Service Point Apr14 (AxeCop)
 
 
 
