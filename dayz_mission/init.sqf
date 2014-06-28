@@ -23,7 +23,7 @@ enableSentences false;
 spawnShoremode = 1; // Default = 1 (on shore)
 spawnArea= 1500; // Default = 1500
 
-MaxVehicleLimit = 300; // Default = 50
+MaxVehicleLimit = 1000; // Default = 50
 MaxDynamicDebris = 500; // Default = 100
 dayz_MapArea = 14000; // Default = 10000
 dayz_maxLocalZombies = 30; // Default = 30 
@@ -40,9 +40,9 @@ dayz_sellDistance_air = 40;
 dayz_maxAnimals = 5; // Default: 8
 dayz_tameDogs = true;
 DynamicVehicleDamageLow = 0; // Default: 0
-DynamicVehicleDamageHigh = 100; // Default: 100
+DynamicVehicleDamageHigh = 0; // Default: 100
 
-DZE_BuildOnRoads = false; // Default: False
+DZE_BuildOnRoads = true; // Default: False
 
 EpochEvents = [["any","any","any","any",30,"crash_spawner"],["any","any","any","any",0,"crash_spawner"],["any","any","any","any",15,"supply_drop"]];
 dayz_fullMoonNights = true;
@@ -81,7 +81,9 @@ if (!isDedicated) then {
 	_playerMonitor = 	[] execVM "\z\addons\dayz_code\system\player_monitor.sqf";	
 	
 	//anti Hack
-	[] execVM "\z\addons\dayz_code\system\antihack.sqf";
+	//### BEGIN MODIFIED CODE: infistar - disable default antihack
+	//[] execVM "\z\addons\dayz_code\system\antihack.sqf";
+	//### END MODIFIED CODE: infistar - disable default antihack
 
 	//Lights
 	//[false,12] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";
@@ -95,3 +97,13 @@ execVM "\z\addons\dayz_code\external\DynamicWeatherEffects.sqf";
 
 
 #include "\z\addons\dayz_code\system\BIS_Effects\init.sqf"
+
+//### BEGIN INSERTED CODE: load addons 
+
+//choose spawn location & loadout
+call compile preprocessFileLineNumbers "addons\spawnplus\init.sqf";
+
+dayz_spaceInterrupt = compile preprocessFileLineNumbers "overwrites\dayz_spaceInterrupt.sqf";
+fnc_usec_selfActions = compile preprocessFileLineNumbers "overwrites\fn_selfActions.sqf";
+
+//### END INSERTED CODE: loan addons
