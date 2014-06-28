@@ -243,7 +243,10 @@ if (isServer && isNil "sm_done") then {
 					_object call fnc_veh_ResetEH;		
 					
 					if(_ownerID != "0" && !(_object isKindOf "Bicycle")) then {
-						_object setvehiclelock "locked";
+						//### BEGIN MODIFIED CODE: unlock vehicles at restart
+						//_object setvehiclelock "locked";
+						_object setvehiclelock "UNLOCKED";
+						//### END MODIFIED CODE: unlock vehicles at restart
 					};
 					
 					_totalvehicles = _totalvehicles + 1;

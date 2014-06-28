@@ -17,7 +17,5 @@ FEATURES:
 + More Snapping Objects (Mikeeey)
 + Service Point Apr14 (AxeCop/modified by deadeye)
 + Extra buildings (Various)
-
-TO ADD:
-- Random Skin on Spawn? (right now is buggy)
-- Emerald Interior Designer?
+- Vehicles Spawn Unlocked (mudzereli)
++ Emerald Interior Design 1.1 (raymix)
