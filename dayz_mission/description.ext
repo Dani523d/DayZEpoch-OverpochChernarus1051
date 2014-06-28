@@ -148,3 +148,9 @@ class DayZ_loadingScreen
 		};
 	};
 };
+
+//### BEGIN MODIFIED CODE: snap build
+
+#include "custom\snap_build\points.hpp"
+
+//### END MODIFIED CODE: snap build

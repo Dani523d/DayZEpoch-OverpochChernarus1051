@@ -929,9 +929,3 @@ server_logUnlockLockEvent = {
 		diag_log format["SAFE %5: ID:%1 UID:%2 BY %3(%4)", _objectID, _objectUID, (name _player), (getPlayerUID _player), _statusText];
 	};
 };
-
-//### BEGIN MODIFIED CODE: cleanup
-
-call compile preprocessFileLineNumbers "addons\cleanup\cleanup.sqf";
-
-//### END MODIFIED CODE: cleanup
