@@ -112,6 +112,9 @@ call compile preprocessFileLineNumbers "addons\suicide\init.sqf";
 //take clothes
 call compile preprocessFileLineNumbers "addons\takeclothes\init.sqf";
 
+//extra buildings
+call compile preprocessFileLineNumbers "addons\buildings\init.sqf";
+
 // space interrupt overwrite
 dayz_spaceInterrupt = compile preprocessFileLineNumbers "overwrites\dayz_spaceInterrupt.sqf";
 
