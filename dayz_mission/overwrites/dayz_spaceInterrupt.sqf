@@ -10,6 +10,12 @@ if (_dikCode in[0x58,0x57,0x44,0x43,0x42,0x41,0x40,0x3F,0x3E,0x3D,0x3C,0x3B]) th
 	_handled = true;
 };
 
+//### BEGIN MODIFIED CODE: spawnplus respawn handler
+if(_dikCode == 0xD3) then {
+	[] spawn respawn_handler;
+};
+//### END MODIFIED CODE: spawnplus respawn handler
+
 if ((_dikCode == 0x3E || _dikCode == 0x0F || _dikCode == 0xD3)) then {
 	if(diag_tickTime - dayz_lastCheckBit > 10) then {
 		dayz_lastCheckBit = diag_tickTime;
