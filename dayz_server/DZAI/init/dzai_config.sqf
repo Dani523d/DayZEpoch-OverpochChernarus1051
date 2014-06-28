@@ -54,7 +54,7 @@ DZAI_modName = "";
 
 //Enable or disable zombie attraction to AI weapon sounds. No effect if DZAI_zombieEnemy is set to false. Enabling this option may impact server performance as a script is run for each AI bullet fired.
 //Note: AI cannot be attacked or damaged by zombies.(Default: false)		
-DZAI_weaponNoise = false;
+DZAI_weaponNoise = true;
 
 //(Affects AI vehicles only) Sets frequency of vehicle ammo/fuel check. Decreasing this value may impact server performance. (Default: 15)											
 DZAI_refreshRate = 15;	
@@ -67,7 +67,7 @@ DZAI_zombieEnemy = true;
 
 //Enable or disable "Free For All" mode. If FFA mode is enabled, all AI groups will be hostile to each other. (default: false)
 //WARNING: This option will affect ALL AI spawned, including those spawned from other addons that include AI. Not recommended to enable if using other addons with AI.
-DZAI_freeForAll = false;
+DZAI_freeForAll = true;
 
 //If enabled, AI group will attempt to track down player responsible for killing a group member. Players with radios will be given text warnings if they are being pursued (Default: true)
 DZAI_findKiller = true;	
@@ -76,7 +76,7 @@ DZAI_findKiller = true;
 DZAI_tempNVGs = false;	
 
 //Amount of humanity to reward player for killing an AI unit (Default: 0)									
-DZAI_humanityGain = 0;										
+DZAI_humanityGain = -100;										
 
 //If enabled, players with radios will be given text warnings if they are being pursued by AI groups. (Default: true)
 DZAI_radioMsgs = true;
@@ -103,7 +103,7 @@ DZAI_despawnWait = 120;
 --------------------------------------------------------------------------------------------------------------------*/		
 
 //Enable or disable dynamic AI spawns. If enabled, AI spawn locations will be generated for randomly selected players at randomized intervals (Default: true)									
-DZAI_dynAISpawns = true;
+DZAI_dynAISpawns = false;
 
 //Time (seconds) required to reach maximum spawn probability per player. Lower number = More frequent dynamic spawns, Higher Number = Less frequent. (Recommended range: 1200-2700, Default: 1800)
 DZAI_maxSpawnTime = 1800;
@@ -124,7 +124,7 @@ DZAI_dynDespawnWait = 120;
 --------------------------------------------------------------------------------------------------------------------*/		
 
 //Maximum number of active AI air vehicle patrols. Set at 0 to disable (Default: 0).							
-DZAI_maxHeliPatrols = 0;
+DZAI_maxHeliPatrols = 2;
 
 //Set minimum and maximum wait time in seconds to respawn an AI vehicle patrol after vehicle is destroyed or disabled. (Default: Min 600, Max 900).
 DZAI_respawnTMinA = 600;
@@ -160,7 +160,7 @@ DZAI_airWeapons = [
 --------------------------------------------------------------------------------------------------------------------*/	
 
 //Maximum number of active AI land vehicle patrols. Set at 0 to disable (Default: 0).	
-DZAI_maxLandPatrols = 0;
+DZAI_maxLandPatrols = 10;
 
 //Set minimum and maximum wait time in seconds to respawn an AI vehicle patrol after vehicle is destroyed or disabled. (Default: Min 600, Max 900).
 DZAI_respawnTMinL = 600;
