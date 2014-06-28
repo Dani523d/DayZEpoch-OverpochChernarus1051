@@ -1,12 +1,12 @@
 // Vehicle Service Point by Axe Cop
 
-private ["_folder","_servicePointClasses","_maxDistance","_actionTitleFormat","_actionCostsFormat","_costsFree","_message","_messageShown","_refuel_enable","_refuel_costs","_refuel_updateInterval","_refuel_amount","_repair_enable","_repair_costs","_repair_repairTime","_rearm_enable","_rearm_costs","_rearm_magazineCount","_lastVehicle","_lastRole","_fnc_removeActions","_fnc_getCosts","_fnc_actionTitle","_fnc_isArmed","_fnc_getWeapons"];
+private ["_folder","_servicePointClasses","_maxDistance","_actionTitleFormat","_actionCostsFormat","_costsFree","_message","_messageShown","_refuel_enable","_refuel_costs","_refuel_updateInterval","_refuel_amount","_repair_enable","_repair_costs","_repair_repairTime","_rearm_enable","_rearm_costs","_rearm_magazineCount","_lastVehicle","_lastRole","_fnc_removeActions","_fnc_getCosts","_fnc_actionTitle","_fnc_isArmed","_fnc_getWeapons","_fnc_getMagazines"];
 
 // ---------------- CONFIG START ----------------
 
 // general settings
-_folder = "addons\service_point\"; // folder where the service point scripts are saved, relative to the mission file
-_servicePointClasses = dayz_fuelpumparray; // service point classes (can be house, vehicle and unit classes)
+_folder = "service_point\"; // folder where the service point scripts are saved, relative to the mission file
+_servicePointClasses = ["HeliHCivil"]; // service point classes (can be house, vehicle and unit classes)
 _maxDistance = 10; // maximum distance from a service point for the options to be shown
 _actionTitleFormat = "%1 (%2)"; // text of the vehicle menu, %1 = action name (Refuel, Repair, Rearm), %2 = costs (see format below)
 _actionCostsFormat = "%2 %1"; // %1 = item name, %2 = item count
@@ -22,21 +22,55 @@ _refuel_amount = 0.05; // amount of fuel to add with every update (in percent)
 // repair settings
 _repair_enable = true; // enable or disable the repair option
 _repair_costs = [
-	["Air",["ItemGoldBar",5]], // 5 Gold for helicopters and planes
-	["AllVehicles",["ItemGoldBar",2]] // 2 Gold for all other vehicles
+	["Air",["ItemGoldBar10oz",1]], // [1,"ItemGoldBar10oz",1]
+	["Tank",["ItemGoldBar10oz",1]], // 
+	["AllVehicles",["ItemGoldBar10oz",1]] // 2 Gold for all other vehicles
 ];
 _repair_repairTime = 2; // time needed to repair each damaged part (in seconds)
 
 // rearm settings
 _rearm_enable = true; // enable or disable the rearm option
+//_blockedWeaponNames=["S-5","Hydra","CRV7"]; // weapon names you wish to exclude from rearming.  Leave empty [] to allow all
+_blockedWeaponNames=[]; // Weapon names you wish to exclude from rearming.  Leave empty [] to allow all
+_blockedAmmoNames = [ // Ammo names you wish to exclude from rearming. Leave empty [] to allow all
+	"192Rnd_57mm",
+	"128Rnd_57mm",
+	"1200Rnd_762x51_M240",
+	"SmokeLauncherMag",
+	"60Rnd_CMFlareMagazine",
+	"120Rnd_CMFlareMagazine",
+	"240Rnd_CMFlareMagazine",
+	"120Rnd_CMFlare_Chaff_Magazine",
+	"240Rnd_CMFlare_Chaff_Magazine",
+	"4Rnd_Ch29",
+	"80Rnd_80mm",
+	"80Rnd_S8T",
+	"150Rnd_30mmAP_2A42",
+	"150Rnd_30mmHE_2A42",
+	"38Rnd_FFAR",
+	"12Rnd_CRV7",
+	"1500Rnd_762x54_PKT",
+	"2000Rnd_762x54_PKT",
+	"150Rnd_30mmAP_2A42",
+	"150Rnd_30mmHE_2A42", 
+	"230Rnd_30mmAP_2A42", 
+	"230Rnd_30mmHE_2A42",
+	"4000Rnd_762x51_M134"	
+	]; 
+
 _rearm_costs = [
-	["ArmoredSUV_PMC_DZE",["ItemGoldBar10oz",2]], // special costs for a single vehicle type
-	["Air",["ItemGoldBar10oz",2]], // 2 10oz Gold for helicopters and planes
-	["AllVehicles",["ItemGoldBar10oz",1]] // 1 10oz Gold for all other vehicles
+	["Car",["ItemGoldBar10oz",1]],
+	["Air",["ItemBriefcase100oz",1]], // 
+	["Tank",["ItemGoldBar10oz",2]], // 
+	["AllVehicles",["ItemBriefcase100oz",1]] // 1 10oz Gold for all other vehicles
 ];
-_rearm_magazineCount = 3; // amount of magazines to be added to the vehicle weapon
+
+_rearm_magazineCount = 1; // amount of magazines to be added to the vehicle weapon
+
 
 // ----------------- CONFIG END -----------------
+
+call compile preprocessFileLineNumbers (_folder + "ac_functions.sqf");
 
 _lastVehicle = objNull;
 _lastRole = [];
@@ -100,7 +134,7 @@ _fnc_isArmed = {
 };
 
 _fnc_getWeapons = {
-	private ["_vehicle","_role","_weapons"];
+	private ["_vehicle","_role","_weapons","_magazineNumber","_badAmmo","_badWeapon","_magazines","_weapon"];
 	_vehicle = _this select 0;
 	_role = _this select 1;
 	_weapons = [];
@@ -111,10 +145,69 @@ _fnc_getWeapons = {
 		{
 			private "_weaponName";
 			_weaponName = getText (configFile >> "CfgWeapons" >> _x >> "displayName");
-			_weapons set [count _weapons, [_x, _weaponName, _turret]];
+			//_weapons set [count _weapons, [_x, _weaponName, _turret]];
+			
+			// block ammo types
+			_badWeapon = _weaponName in _blockedWeaponNames;
+			if (!_badWeapon) then {
+						
+				_weapon = _x;
+				// get all ammo types for this weapon 
+				_magazines = [_weapon] call _fnc_getMagazines;
+				
+				// loop through all ammo types and add them to our list
+				{
+					_badAmmo = _x in _blockedAmmoNames;
+					// check to see if our ammo is prohibited
+					if (!_badAmmo) then {
+						// add one entry to weapons per ammo type.
+						_weapons set [count _weapons, [_weapon, _weaponName, _turret, _x]];
+					};
+					
+				} foreach _magazines;
+			};
+			
+		} forEach _weaponsTurret;
+	} else {
+		private ["_turret","_weaponsTurret","_badAmmo","_badWeapon","_magazines","_weapon"];
+		_turret = [-1];
+		_weaponsTurret = vehicle player weaponsTurret [-1];
+		{
+			private "_weaponName";
+			_weaponName = getText (configFile >> "CfgWeapons" >> _x >> "displayName");
+			
+			// block ammo types
+			_badWeapon = _weaponName in _blockedWeaponNames;
+			if (!_badWeapon) then {
+
+				_weapon = _x;
+				// get all ammo types for this weapon 
+				_magazines = [_weapon] call _fnc_getMagazines;
+				
+				// loop through all ammo types and add them to our list
+				{
+					// check to see if our ammo is prohibited
+					_badAmmo = _x in _blockedAmmoNames;
+					if (!_badAmmo) then {
+						// add one entry to weapons per ammo type.
+						_weapons set [count _weapons, [_weapon, _weaponName, _turret, _x]];
+					};
+				} foreach _magazines;			
+			};
 		} forEach _weaponsTurret;
 	};
 	_weapons
+};
+
+_fnc_getMagazines = {
+	private ["_weaponType","_magazines","_mags"];
+	_magazines = [];
+	_weaponType = _this select 0;
+	_magazines = getArray (configFile >> "CfgWeapons" >> _weaponType >> "magazines");
+	
+	_magazines
+	
+	//_ammo = _magazines select 0; // rearm with the first magazine
 };
 
 while {true} do {
@@ -129,11 +222,7 @@ while {true} do {
 		if (_inRange) then {
 			private ["_servicePoint","_role","_actionCondition","_costs","_actionTitle"];
 			_servicePoint = _servicePoints select 0;
-			if (assignedDriver _vehicle == player) then {
-				_role = ["Driver", [-1]];
-			} else {
-				_role = assignedVehicleRole player;
-			};
+			_role = assignedVehicleRole player;
 			if (((str _role) != (str _lastRole)) || (_vehicle != _lastVehicle)) then {
 				// vehicle or seat changed
 				call _fnc_removeActions;
@@ -151,18 +240,20 @@ while {true} do {
 				_actionTitle = ["Repair", _costs] call _fnc_actionTitle;
 				SP_repair_action = _vehicle addAction [_actionTitle, _folder + "service_point_repair.sqf", [_servicePoint, _costs, _repair_repairTime], -1, false, true, "", _actionCondition];
 			};
-			if ((_role call _fnc_isArmed) && (count SP_rearm_actions == 0) && _rearm_enable) then {
+			if (count SP_rearm_actions == 0 && _rearm_enable) then {
 				private ["_weapons"];
 				_costs = [_vehicle, _rearm_costs] call _fnc_getCosts;
 				_weapons = [_vehicle, _role] call _fnc_getWeapons;
 				{
-					private "_weaponName";
+					private ["_weaponName","_magazineName"];
 					_weaponName = _x select 1;
-					_actionTitle = [format["Rearm %1", _weaponName], _costs] call _fnc_actionTitle;
+					_magazineName = _x select 3;
+					_actionTitle = [format["Rearm %1 - %2", _weaponName, _magazineName], _costs] call _fnc_actionTitle;
 					SP_rearm_action = _vehicle addAction [_actionTitle, _folder + "service_point_rearm.sqf", [_servicePoint, _costs, _rearm_magazineCount, _x], -1, false, true, "", _actionCondition];
 					SP_rearm_actions set [count SP_rearm_actions, SP_rearm_action];
 				} forEach _weapons;
 			};
+
 			if (!_messageShown && _message != "") then {
 				_messageShown = true;
 				_vehicle vehicleChat _message;
