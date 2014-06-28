@@ -100,7 +100,7 @@ execVM "\z\addons\dayz_code\external\DynamicWeatherEffects.sqf";
 
 //### BEGIN INSERTED CODE: load addons 
 
-//load config
+//config
 call compile preprocessFileLineNumbers "config.sqf";
 
 //choose spawn location & loadout
