@@ -94,5 +94,8 @@ while {true} do {
 		SnappingAttachedToPlayer = false;
 		diag_log "height or rotation changed";
 	};
-	sleep 1;
+	//### BEGIN MODIFIED CODE: snap build faster move time
+	//sleep 1;
+	sleep 0.3;
+	//### END MODIFIED CODE: snap build faster move time
 };	
