@@ -13,10 +13,12 @@ FEATURES:
     * increased building limit
     * disabled spawning as zombie
     * self transfusion
+- More Snapping Objects (Mikeeey)
+
+
 
 TO ADD:
 - Random Skin on Spawn?
 - Emerald Interior Designer?
 - Service Points?
-- More Snapping Objects?
 - Extra buildings
