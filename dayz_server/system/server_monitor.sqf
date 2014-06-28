@@ -380,6 +380,13 @@ if (isServer && isNil "sm_done") then {
 	};
 
 	allowConnection = true;	
+
+	//### BEGIN MODIFIED CODE: dzms mission system
+
+	[] ExecVM "\z\addons\dayz_server\DZMS\DZMSInit.sqf";
+	
+	//### END MODIFIED CODE: dzms mission system
+
 	sm_done = true;
 	publicVariable "sm_done";
 };
