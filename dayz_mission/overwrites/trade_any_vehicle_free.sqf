@@ -29,12 +29,7 @@ cutText [(localize "str_epoch_player_105"), "PLAIN DOWN"];
 
 [1,1] call dayz_HungerThirst;
 // force animation
-//### BEGIN MODIFIED CODE: fast trading
-
-//player playActionNow "Medic";
-player playActionNow DZE_TRADE_ANIMATION;
-
-//### END MODIFIED CODE: fast trading
+player playActionNow "Medic";
 
 r_interrupt = false;
 _animState = animationState player;
@@ -48,10 +43,16 @@ while {r_doLoop} do {
 	if (_isMedic) then {
 		_started = true;
 	};
-	if (_started && !_isMedic) then {
+	//### BEGIN MODIFIED CODE: instant trading
+	//if (_started && !_isMedic) then {
+	if (_started) then {
 		r_doLoop = false;
 		_finished = true;
+		[objNull, player, rSwitchMove,""] call RE;
+		player playActionNow "stop";
+		// ^ this line is new and cancels the animation
 	};
+	//### BEGIN MODIFIED CODE: instant trading
 	if (r_interrupt) then {
 		r_doLoop = false;
 	};
