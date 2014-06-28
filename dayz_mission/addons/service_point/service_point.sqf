@@ -5,8 +5,8 @@ private ["_folder","_servicePointClasses","_maxDistance","_actionTitleFormat","_
 // ---------------- CONFIG START ----------------
 
 // general settings
-_folder = "service_point\"; // folder where the service point scripts are saved, relative to the mission file
-_servicePointClasses = ["HeliHCivil"]; // service point classes (can be house, vehicle and unit classes)
+_folder = "addons\service_point\"; // folder where the service point scripts are saved, relative to the mission file
+_servicePointClasses = dayz_fuelpumparray; // service point classes (can be house, vehicle and unit classes)
 _maxDistance = 10; // maximum distance from a service point for the options to be shown
 _actionTitleFormat = "%1 (%2)"; // text of the vehicle menu, %1 = action name (Refuel, Repair, Rearm), %2 = costs (see format below)
 _actionCostsFormat = "%2 %1"; // %1 = item name, %2 = item count
@@ -22,8 +22,7 @@ _refuel_amount = 0.05; // amount of fuel to add with every update (in percent)
 // repair settings
 _repair_enable = true; // enable or disable the repair option
 _repair_costs = [
-	["Air",["ItemGoldBar10oz",1]], // [1,"ItemGoldBar10oz",1]
-	["Tank",["ItemGoldBar10oz",1]], // 
+	["Car",["ItemGoldBar",1]], // 
 	["AllVehicles",["ItemGoldBar10oz",1]] // 2 Gold for all other vehicles
 ];
 _repair_repairTime = 2; // time needed to repair each damaged part (in seconds)
@@ -61,8 +60,7 @@ _blockedAmmoNames = [ // Ammo names you wish to exclude from rearming. Leave emp
 _rearm_costs = [
 	["Car",["ItemGoldBar10oz",1]],
 	["Air",["ItemBriefcase100oz",1]], // 
-	["Tank",["ItemGoldBar10oz",2]], // 
-	["AllVehicles",["ItemBriefcase100oz",1]] // 1 10oz Gold for all other vehicles
+	["AllVehicles",["ItemGoldBar10oz",3]] // 1 10oz Gold for all other vehicles
 ];
 
 _rearm_magazineCount = 1; // amount of magazines to be added to the vehicle weapon
