@@ -27,5 +27,4 @@ if (false) then {
     sleep 10;
  
     cutText [format["Warning: Spawned bikes DO NOT SAVE after server restart!"], "PLAIN DOWN"];
- 
 };
