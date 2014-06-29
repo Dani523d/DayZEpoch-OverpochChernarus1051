@@ -6148,6 +6148,8 @@ if (true) then
   _bldObj setVectorUp [0,0,1];
 };
 
+//### BEGIN MODIFIED CODE: buildings -- these cause errors
+/*
 _bldObj = objNull;
 if (true) then
 {
@@ -6163,6 +6165,8 @@ if (true) then
   _bldObj setPos [13103.341, 12698.138, 40.285622];
   _bldObj setVectorDirAndUp [[0,1,0],[0,0,1]];
 };
+*/
+//### END MODIFIED CODE: buildings -- these cause errors
 
 _bldObj = objNull;
 if (true) then
