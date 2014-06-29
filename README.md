@@ -4,9 +4,9 @@ FEATURES
 + Snap Build v1.6 (Maca/OtterNas3)
 + Suicide (Grafzahl/rewritten by me)
 + Take Clothes (ZABN/rewritten by me)
-+ Faster Trading Tweak (Gr8Boi)
++ Faster Trading Tweak (written by me/inspired by Gr8Boi)
 + DZAI 1.1Fin
-+ Settings Tweaks
++ Settings Tweaks (Epoch Team/VBAwol)
     * less vehicles
     * road building
     * no plot requirement
@@ -24,8 +24,8 @@ FEATURES
     * C130 Crash (Crankyfist)
     * Balota Overhaul (Ixxo)
     * NWAF Rework (oxygen220)
-+ Vehicles Spawn Unlocked (mudzereli)
++ Vehicles Optionally Spawn Unlocked (mudzereli)
 - Safe Zones (AGN/modified by mudzereli)
 + Deployable Bike (player2)
 + Enhanced Spawn Select (ebay)
-+ Epoch Mission System 0.3 (defents edit)
++ Epoch Mission System 0.3 (Fuchs/defents edit)
