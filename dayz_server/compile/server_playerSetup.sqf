@@ -233,9 +233,7 @@ _playerObj setVariable["humanity_CHK",_humanity];
 //_playerObj setVariable["state",_state,true];
 _playerObj setVariable["lastPos",getPosATL _playerObj];
 
-//### BEGIN MODIFIED CODE: spawnplus random spawn
-dayzPlayerLogin2 = [_worldspace,_state,_randomSpot];
-//### END MODIFIED CODE: spawnplus random spawn
+dayzPlayerLogin2 = [_worldspace,_state];
 
 // PVDZE_obj_Debris = DZE_LocalRoadBlocks;
 _clientID = owner _playerObj;

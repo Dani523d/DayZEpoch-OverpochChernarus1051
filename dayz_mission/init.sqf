@@ -103,9 +103,6 @@ execVM "\z\addons\dayz_code\external\DynamicWeatherEffects.sqf";
 //config
 call compile preprocessFileLineNumbers "config.sqf";
 
-//choose spawn location & loadout
-call compile preprocessFileLineNumbers "addons\spawnplus\init.sqf";
-
 //suicide
 call compile preprocessFileLineNumbers "addons\suicide\init.sqf";
 
@@ -114,9 +111,6 @@ call compile preprocessFileLineNumbers "addons\takeclothes\init.sqf";
 
 //extra buildings
 call compile preprocessFileLineNumbers "addons\buildings\init.sqf";
-
-// space interrupt overwrite
-dayz_spaceInterrupt = compile preprocessFileLineNumbers "overwrites\dayz_spaceInterrupt.sqf";
 
 // snap build
 call compile preprocessFileLineNumbers "custom\snap_build\compiles.sqf";
@@ -127,4 +121,4 @@ call compile preprocessFileLineNumbers "overwrites\player_traderMenuHive.sqf";
 //service point
 if (!isDedicated) then {execVM "addons\service_point\service_point.sqf";};
 
-//### END INSERTED CODE: loan addons
+//### END INSERTED CODE: load addons

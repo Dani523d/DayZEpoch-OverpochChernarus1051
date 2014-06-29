@@ -1,7 +1,6 @@
 FEATURES
 ========
 + Infistar Support (Infistar Not Incl.)
-+ SpawnPlus (Ebay/rewritten by me)
 + Snap Build v1.6 (Maca/OtterNas3)
 + Suicide (Grafzahl/rewritten by me)
 + Take Clothes (ZABN/rewritten by me)
