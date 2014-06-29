@@ -23,5 +23,5 @@ FEATURES
     * NEAF Barracks (mudzereli)
     * C130 Crash (Crankyfist)
     * Balota Overhaul (Ixxo)
-    * NWAF Military Addition
+    * NWAF Rework (oxygen220)
 + Vehicles Spawn Unlocked (mudzereli)
