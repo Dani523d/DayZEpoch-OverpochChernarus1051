@@ -245,7 +245,11 @@ if (isServer && isNil "sm_done") then {
 					if(_ownerID != "0" && !(_object isKindOf "Bicycle")) then {
 						//### BEGIN MODIFIED CODE: unlock vehicles at restart
 						//_object setvehiclelock "locked";
-						_object setvehiclelock "UNLOCKED";
+						if(DZE_VEHICLES_SPAWN_UNLOCKED) then {
+							_object setvehiclelock "UNLOCKED";
+						} else {
+							_object setvehiclelock "LOCKED";
+						};
 						//### END MODIFIED CODE: unlock vehicles at restart
 					};
 					
