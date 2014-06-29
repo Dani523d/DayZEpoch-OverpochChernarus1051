@@ -42,45 +42,21 @@ for "_x" from 1 to _total_trades do {
 		cutText [format[(localize "str_epoch_player_187"),_tradeCounter,_total_trades] , "PLAIN DOWN"];
 	};
 	[1,1] call dayz_HungerThirst;
-	player playActionNow "Medic";
-
-	r_interrupt = false;
-	_animState = animationState player;
-	r_doLoop = true;
-	_started = false;
-	_finished = false;
 	
-	while {r_doLoop} do {
-		_animState = animationState player;
-		_isMedic = ["medic",_animState] call fnc_inString;
-		if (_isMedic) then {
-			_started = true;
-		};
-		//### BEGIN MODIFIED CODE: instant trading
-		//if (_started && !_isMedic) then {
-		if (_started) then {
-			r_doLoop = false;
-			_finished = true;
-			[objNull, player, rSwitchMove,""] call RE;
-			player playActionNow "stop";
-			// ^ this line is new and cancels the animation
-		};
-		//### BEGIN MODIFIED CODE: instant trading
-		if (r_interrupt) then {
-			r_doLoop = false;
-		};
-		sleep 0.1;
+	//### BEGIN MODIFIED CODE: fast trading
+	private["_newPosition","_finished","_oldPosition"];
+	_finished = false;
+	_oldPosition = position player;
+	sleep 1;
+	_newPosition = position player;
+	if (_oldPosition select 0 == _newPosition select 0 && _oldPosition select 1 == _newPosition select 1) then {
+		_finished = true;
 	};
-	r_doLoop = false;
 
 	if (!_finished) exitWith { 
-		r_interrupt = false;
-		if (vehicle player == player) then {
-			[objNull, player, rSwitchMove,""] call RE;
-			player playActionNow "stop";
-		};
 		cutText [(localize "str_epoch_player_106") , "PLAIN DOWN"];
 	};
+	//### END MODIFIED CODE: fast trading
 
 	_qty = {_x == _part_in} count magazines player;
 	if (_qty >= _qty_in) then {
