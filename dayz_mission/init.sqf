@@ -121,4 +121,10 @@ call compile preprocessFileLineNumbers "overwrites\player_traderMenuHive.sqf";
 //service point
 if (!isDedicated) then {execVM "addons\service_point\service_point.sqf";};
 
+//spawn chooser
+espawn = compile preprocessFileLineNumbers "spawn\spawn.sqf";
+waitUntil {!isNil "dayzPlayerLogin"};
+waitUntil {count dayzPlayerLogin > 0};
+if ((!isDedicated) && (dayzPlayerLogin select 4)) then {call espawn;};
+
 //### END INSERTED CODE: load addons

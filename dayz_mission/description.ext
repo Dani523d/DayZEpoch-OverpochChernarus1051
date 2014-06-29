@@ -154,3 +154,12 @@ class DayZ_loadingScreen
 #include "custom\snap_build\points.hpp"
 
 //### END MODIFIED CODE: snap build
+
+//### BEGIN MODIFIED CODE: ebay spawn
+
+#include "spawn\defines.hpp"
+#include "spawn\class.hpp"
+#include "spawn\halo.hpp"
+#include "spawn\spawn.hpp"
+
+//### END MODIFIED CODE: ebay spawn
