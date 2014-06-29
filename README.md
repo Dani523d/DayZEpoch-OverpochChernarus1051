@@ -1,4 +1,5 @@
-FEATURES:
+FEATURES
+========
 + Infistar Support (Infistar Not Incl.)
 + SpawnPlus (Ebay/rewritten by me)
 + Snap Build v1.6 (Maca/OtterNas3)
@@ -16,6 +17,12 @@ FEATURES:
     * one step building
 + More Snapping Objects (Mikeeey)
 + Service Point Apr14 (AxeCop/modified by deadeye)
-+ Extra buildings (Various)
-- Vehicles Spawn Unlocked (mudzereli)
-+ Emerald Interior Design 1.1 (raymix)
++ Extra buildings
+    * Ghost of Chernarus Map Pack
+    * NWAF Gas Station (Crankyfist)
+    * Field Hospital (Crankyfist)
+    * NEAF Barracks (mudzereli)
+    * C130 Crash (Crankyfist)
+    * Balota Overhaul (Ixxo)
+    * NWAF Military Addition
++ Vehicles Spawn Unlocked (mudzereli)
