@@ -103,6 +103,9 @@ execVM "\z\addons\dayz_code\external\DynamicWeatherEffects.sqf";
 //config
 call compile preprocessFileLineNumbers "config.sqf";
 
+//deployable bike
+call compile preprocessFileLineNumbers "addons\bike\init.sqf";
+
 //suicide
 call compile preprocessFileLineNumbers "addons\suicide\init.sqf";
 
@@ -111,6 +114,9 @@ call compile preprocessFileLineNumbers "addons\takeclothes\init.sqf";
 
 //extra buildings
 call compile preprocessFileLineNumbers "addons\buildings\init.sqf";
+
+//suicide
+call compile preprocessFileLineNumbers "addons\safezones\init.sqf";
 
 // snap build
 call compile preprocessFileLineNumbers "custom\snap_build\compiles.sqf";
