@@ -669,7 +669,7 @@ donorClassLvl3 = ["0","0","0"];
 presetClasses = [
 	["Bandit","Bandit2_DZ",["15Rnd_W1866_Slug","15Rnd_W1866_Slug","17Rnd_9x19_glock17","17Rnd_9x19_glock17","17Rnd_9x19_glock17","HandGrenade"],["Winchester1866","glock17_EP1"],"",[],[],0,-2000],
 	["Hero","Soldier_Sniper_PMC_DZ",["10x_303","10x_303","15Rnd_9x19_M9","15Rnd_9x19_M9","15Rnd_9x19_M9","HandGrenade"],["LeeEnfield","M9"],"",[],[],0,5000],
-	["Survivor","Survivor2_DZ",["7Rnd_45ACP_1911","7Rnd_45ACP_1911","7Rnd_45ACP_1911"],["Colt1911","ItemToolbox"],"",[],[],0,0],
+	["Survivor","Survivor2_DZ",["7Rnd_45ACP_1911","7Rnd_45ACP_1911","7Rnd_45ACP_1911"],["Colt1911","ItemHatchet_DZE"],"",[],[],0,0],
 	["Rocker","Rocker1_DZ",["BoltSteel","BoltSteel","BoltSteel","BoltSteel","BoltSteel","BoltSteel","BoltSteel"],["Crossbow"],"DZ_ALICE_Pack_EP1",[],[],0,0],
 	["Priest","Priest_DZ",["2Rnd_shotgun_74Slug","2Rnd_shotgun_74Slug","2Rnd_shotgun_74Slug","2Rnd_shotgun_74Slug","ItemBloodbag"],["MR43"],"",[],[],0,0],
 	["Police Officer","RU_Policeman_DZ",["6Rnd_45ACP","6Rnd_45ACP","6Rnd_45ACP"],["revolver_EP1","ItemMap"],"",[],[],0,0],
