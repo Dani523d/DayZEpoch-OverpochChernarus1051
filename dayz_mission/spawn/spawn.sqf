@@ -63,7 +63,9 @@ _waitScript =  [] spawn {
 					_pos = (locArray select _forEachIndex) select 0;
 					if ((_bodyPos distance _pos) <= 5000) then {
 						_idc = (1600+_forEachIndex);
-						ctrlShow [_idc,false];
+						//### BEGIN MODIFIED CODE: ebay spawn remove limit on death
+						//ctrlShow [_idc,false];
+						//### BEGIN MODIFIED CODE: ebay spawn remove limit on death
 					};
 				} forEach locArray;
 			} count _bodies;
@@ -109,7 +111,9 @@ if (spawnSelect == 40) exitWith {
 	_donorUID = (getPlayerUID player);
 	{if (_donorUID == _x) then {_donorBase = _forEachIndex;};} forEach donorListBase;
 	_position = donorListBases select _donorBase;
-	if (haloSelect == 1) then {_pos = [_position select 0,_position select 1,2000];player setPosATL _pos;player setVariable["lastPos",_pos,true];[player,2000] spawn BIS_fnc_halo;} else {player setPosATL _position;};
+	//### BEGIN MODIFIED CODE: ebay spawn height - change 2000 to 1500
+	if (haloSelect == 1) then {_pos = [_position select 0,_position select 1,1500];player setPosATL _pos;player setVariable["lastPos",_pos,true];[player,1500] spawn BIS_fnc_halo;} else {player setPosATL _position;};
+	//### END MODIFIED CODE: ebay spawn height
 };
 if (spawnSelect == 41) then {spawnSelect = floor (random 23)};
 
@@ -127,4 +131,6 @@ while {_findSpot and _counter < 20} do {
 	if (!_isNear and !_isZero) then {_findSpot = false};
 };
 _position = [_position select 0,_position select 1,0];
-if (haloSelect == 1) then {_pos = [_position select 0,_position select 1,2000];player setPosATL _pos;player setVariable["lastPos",_pos,true];[player,2000] spawn BIS_fnc_halo;} else {player setPosATL _position;};
+//### BEGIN MODIFIED CODE: ebay spawn height - change 2000 to 1500
+if (haloSelect == 1) then {_pos = [_position select 0,_position select 1,1500];player setPosATL _pos;player setVariable["lastPos",_pos,true];[player,1500] spawn BIS_fnc_halo;} else {player setPosATL _position;};
+//### END MODIFIED CODE: ebay spawn height
