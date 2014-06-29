@@ -383,9 +383,12 @@ if (isServer && isNil "sm_done") then {
 	};
 
 	//### BEGIN MODIFIED CODE: dzai
+	//dzai
 	if (DZE_ENABLE_DZAI) then {
 		call compile preprocessFileLineNumbers "\z\addons\dayz_server\DZAI\init\dzai_initserver.sqf";
 	};
+	//epoch mission system
+	[] ExecVM "\z\addons\dayz_server\EMS\DZMSInit.sqf";
 	//### END MODIFIED CODE: dzai
 	allowConnection = true;
 	sm_done = true;
