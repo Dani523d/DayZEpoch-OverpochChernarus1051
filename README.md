@@ -15,8 +15,8 @@ FEATURES
     * self transfusion
     * one step building
 + More Snapping Objects (Mikeeey)
-+ Service Point Apr14 (AxeCop/modified by )
-+ Extra buildingsdeadeye
++ Service Point Apr14 (AxeCop)
++ Extra buildings
     * Ghost of Chernarus Map Pack
     * NWAF Gas Station (Crankyfist)
     * Field Hospital (Crankyfist)
@@ -26,6 +26,6 @@ FEATURES
     * NWAF Rework (oxygen220)
 + Vehicles Spawn Unlocked (mudzereli)
 - Safe Zones (AGN/modified by mudzereli)
-- Deployable Bike (player2/modified by mudzereli)
-+ Choose Spawn & Class (ebay)
++ Deployable Bike (player2)
++ Enhanced Spawn Select (ebay)
 + Epoch Mission System 0.3 (defents edit)
