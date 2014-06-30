@@ -127,6 +127,9 @@ call compile preprocessFileLineNumbers "custom\snap_build\compiles.sqf";
 // fast trading
 call compile preprocessFileLineNumbers "overwrites\fast_trading\player_traderMenuHive.sqf";
 
+// loot spawn adjustments
+call compile preprocessFileLineNumbers "overwrites\lootspawn\init.sqf";
+
 if(!isServer) then {execVM "addons\service_point\service_point.sqf";};
 
 //spawn chooser
