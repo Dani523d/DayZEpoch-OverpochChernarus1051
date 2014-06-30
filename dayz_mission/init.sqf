@@ -26,7 +26,7 @@ spawnArea= 1500; // Default = 1500
 MaxVehicleLimit = 50; // Default = 50
 MaxDynamicDebris = 100; // Default = 100
 dayz_MapArea = 14000; // Default = 10000
-dayz_maxLocalZombies = 100; // Default = 30 
+dayz_maxLocalZombies = 6; // Default = 30 
 
 dayz_paraSpawn = false;
 
