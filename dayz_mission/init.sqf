@@ -118,6 +118,9 @@ call compile preprocessFileLineNumbers "addons\buildings\init.sqf";
 //suicide
 call compile preprocessFileLineNumbers "addons\safezones\init.sqf";
 
+// plotbuff - zombie removal
+call compile preprocessFileLineNumbers "addons\plotbuff\init.sqf";
+
 // snap build
 call compile preprocessFileLineNumbers "custom\snap_build\compiles.sqf";
 
