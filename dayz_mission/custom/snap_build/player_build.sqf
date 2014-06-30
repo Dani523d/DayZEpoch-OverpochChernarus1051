@@ -93,8 +93,10 @@ _needNear = 	getArray (configFile >> "CfgMagazines" >> _item >> "ItemActions" >>
 	};
 } forEach _needNear;
 
-
-if(_abort) exitWith {
+//### BEGIN MODIFIED CODE: build admin
+//if(_abort) exitWith {
+if(_abort && !((getPlayerUID player) in DZE_BUILD_ADMINS)) exitWith {
+//### END MODIFIED CODE: build admin
 	cutText [format[(localize "str_epoch_player_135"),_reason,_distance], "PLAIN DOWN"];
 	DZE_ActionInProgress = false;
 };
@@ -148,7 +150,7 @@ _findNearestPole = [];
 _IsNearPlot = count (_findNearestPole);
 
 // If item is plot pole and another one exists within 45m
-if(_isPole and _IsNearPlot > 0) exitWith {  DZE_ActionInProgress = false; cutText [(localize "str_epoch_player_44") , "PLAIN DOWN"]; };
+if(_isPole and _IsNearPlot > 0  && !((getPlayerUID player) in DZE_BUILD_ADMINS)) exitWith {  DZE_ActionInProgress = false; cutText [(localize "str_epoch_player_44") , "PLAIN DOWN"]; };
 
 if(_IsNearPlot == 0) then {
 
@@ -188,13 +190,13 @@ if(_IsNearPlot == 0) then {
 };
 
 // _message
-if(!_canBuildOnPlot) exitWith {  DZE_ActionInProgress = false; cutText [format[(localize "STR_EPOCH_PLAYER_135"),_needText,_distance] , "PLAIN DOWN"]; };
+if(!_canBuildOnPlot  && !((getPlayerUID player) in DZE_BUILD_ADMINS)) exitWith {  DZE_ActionInProgress = false; cutText [format[(localize "STR_EPOCH_PLAYER_135"),_needText,_distance] , "PLAIN DOWN"]; };
 
 _missing = "";
 _hasrequireditem = true;
 {
 	_hastoolweapon = _x in weapons player;
-	if(!_hastoolweapon) exitWith { _hasrequireditem = false; _missing = getText (configFile >> "cfgWeapons" >> _x >> "displayName"); }
+	if(!_hastoolweapon  && !((getPlayerUID player) in DZE_BUILD_ADMINS)) exitWith { _hasrequireditem = false; _missing = getText (configFile >> "cfgWeapons" >> _x >> "displayName"); }
 } forEach _require;
 
 _hasbuilditem = _this in magazines player;
@@ -235,7 +237,7 @@ if (_hasrequireditem) then {
 	SnappingResetPos = false;
 
 	if (isClass (missionConfigFile >> "SnapPoints" >> _classname)) then {
-		s_building_snapping = player addAction ["<t color=""#0000ff"">Toggle Snapping</t>", "custom\snap_build\player_toggleSnapping.sqf",_classname, 3, true, false, "",""];
+		s_building_snapping = player addAction ["<t color=""#ffbb33"">Toggle Snapping</t>", "custom\snap_build\player_toggleSnapping.sqf",_classname, 3, true, false, "",""];
 	};
 	
 	_snapper = [_object, _classname] spawn snap_object;
@@ -287,11 +289,11 @@ if (_hasrequireditem) then {
 	player allowDamage true;
 	
 	//No building on roads unless toggled
-	if (!DZE_BuildOnRoads) then {
+	if (!DZE_BuildOnRoads  && !((getPlayerUID player) in DZE_BUILD_ADMINS)) then {
 		if (isOnRoad _position) then { _cancel = true; _reason = "Cannot build on a road."; };
 	};
 	// No building in trader zones
-	if(!canbuild) then { _cancel = true; _reason = "Cannot build in a city."; };
+	if(!canbuild  && !((getPlayerUID player) in DZE_BUILD_ADMINS)) then { _cancel = true; _reason = "Cannot build in a city."; };
 
 
 	if(!_cancel) then {
