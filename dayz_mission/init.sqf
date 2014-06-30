@@ -26,7 +26,7 @@ spawnArea= 1500; // Default = 1500
 MaxVehicleLimit = 50; // Default = 50
 MaxDynamicDebris = 100; // Default = 100
 dayz_MapArea = 14000; // Default = 10000
-dayz_maxLocalZombies = 30; // Default = 30 
+dayz_maxLocalZombies = 100; // Default = 30 
 
 dayz_paraSpawn = false;
 
@@ -127,8 +127,13 @@ call compile preprocessFileLineNumbers "custom\snap_build\compiles.sqf";
 // fast trading
 call compile preprocessFileLineNumbers "overwrites\fast_trading\player_traderMenuHive.sqf";
 
-//service point
-if (!isDedicated) then {execVM "addons\service_point\service_point.sqf";};
+if(!isServer) then {
+	// slow zombies
+	zombie_generate = compile preprocessFileLineNumbers "overwrites\slow_zombies\zombie_generate.sqf";
+
+	//service point
+	execVM "addons\service_point\service_point.sqf";
+};
 
 //spawn chooser
 espawn = compile preprocessFileLineNumbers "spawn\spawn.sqf";

@@ -30,3 +30,4 @@ FEATURES
 + Enhanced Spawn Select (ebay)
 + Epoch Mission System 0.3 (Fuchs/defents edit)
 - Admin Builder Tweak (mudzereli)
+- Slow Zombies (mudzereli)
