@@ -146,13 +146,13 @@ class FSM
     class init
     {
       name = "init";
-      init = /*%FSM<STATEINIT""">*/"_position =     _this select 0;" \n
-       "_agent =        _this select 1;" \n
+      init = /*%FSM<STATEINIT""">*/"_position =   _this select 0;" \n
+       "_agent =    _this select 1;" \n
        "_secondHand = false;" \n
        "" \n
        "if (count _this > 2) then {" \n
-       "    _secondHand = true;" \n
-       "    //diag_log (""Second Hand Zombie Initialized: "" + str(_this));" \n
+       "  _secondHand = true;" \n
+       "  //diag_log (""Second Hand Zombie Initialized: "" + str(_this));" \n
        "};"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
@@ -185,11 +185,11 @@ class FSM
     {
       name = "End";
       init = /*%FSM<STATEINIT""">*/"if (!isDedicated) then {" \n
-       "    if (!isNull _agent) then {" \n
-       "        deleteVehicle _agent;" \n
-       "    };" \n
+       "  if (!isNull _agent) then {" \n
+       "    deleteVehicle _agent;" \n
+       "  };" \n
        "} else {" \n
-       "    [_agent] call zombie_findOwner;" \n
+       "  [_agent] call zombie_findOwner;" \n
        "};"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
@@ -207,11 +207,11 @@ class FSM
        "" \n
        "_newDest = _agent getVariable [""myDest"",getposATL _agent];" \n
        "if (!isNil ""_newDest"") then {" \n
-       "    if (_newDest distance _myDest > 0) then {" \n
-       "        _myDest = _newDest;" \n
-       "        _agent moveTo _myDest;" \n
-       "        _agent forceSpeed 2;" \n
-       "    };" \n
+       "  if (_newDest distance _myDest > 0) then {" \n
+       "    _myDest = _newDest;" \n
+       "    _agent moveTo _myDest;" \n
+       "    _agent forceSpeed 2;" \n
+       "  };" \n
        "};" \n
        "" \n
        "//diag_log (""Zombie "" + str(_agent) + "" Wait "");"/*%FSM</STATEINIT""">*/;
@@ -247,10 +247,10 @@ class FSM
           condition=/*%FSM<CONDITION""">*/"!(isNull _target)"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"//Leader cries out" \n
            "if (_isSomeone) then {" \n
-           "    [_agent,""spotted"",0,false] call dayz_zombieSpeak;" \n
+           "  [_agent,""spotted"",0,false] call dayz_zombieSpeak;" \n
            "};" \n
            "if (!_hasMoved) then {" \n
-           "    _agent setVariable[""doLoiter"",true,true];" \n
+           "  _agent setVariable[""doLoiter"",true,true];" \n
            "};" \n
            "_countr = 0;" \n
            "_losCheck = 0;" \n
@@ -294,11 +294,11 @@ class FSM
        "" \n
        "_newDest = _agent getVariable [""myDest"",getposATL _agent];" \n
        "if (!isNil ""_newDest"") then {" \n
-       "    if (_newDest distance _myDest > 0) then {" \n
-       "        _myDest = _newDest;" \n
-       "        _agent moveTo _myDest;" \n
-       "        _agent forceSpeed 2;" \n
-       "    };" \n
+       "  if (_newDest distance _myDest > 0) then {" \n
+       "    _myDest = _newDest;" \n
+       "    _agent moveTo _myDest;" \n
+       "    _agent forceSpeed 2;" \n
+       "  };" \n
        "};" \n
        "" \n
        "_timeN = time;" \n
@@ -306,9 +306,9 @@ class FSM
        "//hintSilent (""loitering..."" + str(_agent distance (_agent getVariable [""myDest"",getposATL _agent])));" \n
        "" \n
        "if (_secondHand) then {" \n
-       "    diag_log (""Zombie "" + str(_agent) + "" Loiter "" + "" distance: "" + str(_newDest distance _myDest));" \n
-       "    _agent doMove (getPosATL player);" \n
-       "    _agent moveTo (getPosATL player);" \n
+       "  diag_log (""Zombie "" + str(_agent) + "" Loiter "" + "" distance: "" + str(_newDest distance _myDest));" \n
+       "  _agent doMove (getPosATL player);" \n
+       "  _agent moveTo (getPosATL player);" \n
        "};"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
@@ -342,10 +342,10 @@ class FSM
           condition=/*%FSM<CONDITION""">*/"!(isNull _target)"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"//Leader cries out" \n
            "if (_isSomeone) then {" \n
-           "    [_agent,""spotted"",0,false] call dayz_zombieSpeak;" \n
+           "  [_agent,""spotted"",0,false] call dayz_zombieSpeak;" \n
            "};" \n
            "if (!_hasMoved) then {" \n
-           "    _agent setVariable[""doLoiter"",true,true];" \n
+           "  _agent setVariable[""doLoiter"",true,true];" \n
            "};" \n
            "_countr = 0;" \n
            "_losCheck = 0;" \n
@@ -394,13 +394,13 @@ class FSM
     class Begin
     {
       name = "Begin";
-      init = /*%FSM<STATEINIT""">*/"_doLoiter =     _agent getVariable[""doLoiter"",true];" \n
+      init = /*%FSM<STATEINIT""">*/"_doLoiter =   _agent getVariable[""doLoiter"",true];" \n
        "" \n
        "_myDest =   _position;" \n
        "_newDest =  _position;" \n
-       "_array =        [];" \n
+       "_array =    [];" \n
        "" \n
-       "_bodyStay =     60;" \n
+       "_bodyStay =   60;" \n
        "" \n
        "_hasMoved = _doLoiter;" \n
        "" \n
@@ -426,9 +426,9 @@ class FSM
        "" \n
        "//Debug" \n
        "if (_secondHand) then {" \n
-       "    diag_log (""Zombie Brain Initialized "" + str(_agent) + "" doLoiter: "" + str(_doLoiter));" \n
-       "    [_agent,_position] call zombie_loiter;" \n
-       "    _myDest = _agent getVariable [""myDest"",getposATL _agent];" \n
+       "  diag_log (""Zombie Brain Initialized "" + str(_agent) + "" doLoiter: "" + str(_doLoiter));" \n
+       "  [_agent,_position] call zombie_loiter;" \n
+       "  _myDest = _agent getVariable [""myDest"",getposATL _agent];" \n
        "" \n
        "};" \n
        ""/*%FSM</STATEINIT""">*/;
@@ -472,11 +472,11 @@ class FSM
        "" \n
        "//Move to target" \n
        "_agent moveTo _targetPos;" \n
-       "_agent forceSpeed 2;" \n
+       "_agent forceSpeed 10;" \n
        "" \n
        "if (_losCheck == 2) then {" \n
-       "    _losCheck = 0;" \n
-       "    _cantSee = [_agent,_target] call dayz_losCheck;" \n
+       "  _losCheck = 0;" \n
+       "  _cantSee = [_agent,_target] call dayz_losCheck;" \n
        "};" \n
        ""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -672,9 +672,9 @@ class FSM
     {
       name = "Reset_Targeting";
       init = /*%FSM<STATEINIT""">*/"if (!isNull _target) then {" \n
-       "    _targetPos = getPosATL _target;" \n
-       "    _agent setVariable [""myDest"",_targetPos];" \n
-       "    _agent moveTo _targetPos;" \n
+       "  _targetPos = getPosATL _target;" \n
+       "  _agent setVariable [""myDest"",_targetPos];" \n
+       "  _agent moveTo _targetPos;" \n
        "};" \n
        "" \n
        "_agent setVariable [""targets"",[],true];" \n
