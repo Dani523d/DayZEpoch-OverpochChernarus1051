@@ -94,6 +94,8 @@ _needNear = 	getArray (configFile >> "CfgMagazines" >> _item >> "ItemActions" >>
 } forEach _needNear;
 
 //### BEGIN MODIFIED CODE: build admin
+// OTHER REFERENCES:
+// SEARCH FOR  			&& !((getPlayerUID player) in DZE_BUILD_ADMINS)
 //if(_abort) exitWith {
 if(_abort && !((getPlayerUID player) in DZE_BUILD_ADMINS)) exitWith {
 //### END MODIFIED CODE: build admin

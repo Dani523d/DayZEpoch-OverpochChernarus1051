@@ -17,7 +17,7 @@ FEATURES
 + More Snapping Objects (Mikeeey)
 + Service Point Apr14 (AxeCop)
 + Extra buildings
-    * Ghost of Chernarus Map Pack
+    * Ghost of Chernarus Map Pack (Charlatan)
     * NWAF Gas Station (Crankyfist)
     * Field Hospital (Crankyfist)
     * NEAF Barracks (mudzereli)
@@ -29,3 +29,4 @@ FEATURES
 + Deployable Bike (player2)
 + Enhanced Spawn Select (ebay)
 + Epoch Mission System 0.3 (Fuchs/defents edit)
+- Admin Builder Tweak (mudzereli)

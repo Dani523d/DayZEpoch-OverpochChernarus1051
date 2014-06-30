@@ -45,7 +45,7 @@ DynamicVehicleDamageHigh = 100; // Default: 100
 DZE_BuildOnRoads = true; // Default: False
 
 EpochEvents = [["any","any","any","any",30,"crash_spawner"],["any","any","any","any",0,"crash_spawner"],["any","any","any","any",15,"supply_drop"]];
-dayz_fullMoonNights = true;
+dayz_fullMoonNights = false;
 
 //Load in compiled functions
 call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\variables.sqf";				//Initilize the Variables (IMPORTANT: Must happen very early)
@@ -125,7 +125,7 @@ call compile preprocessFileLineNumbers "addons\plotbuff\init.sqf";
 call compile preprocessFileLineNumbers "custom\snap_build\compiles.sqf";
 
 // fast trading
-call compile preprocessFileLineNumbers "overwrites\player_traderMenuHive.sqf";
+call compile preprocessFileLineNumbers "overwrites\fast_trading\player_traderMenuHive.sqf";
 
 //service point
 if (!isDedicated) then {execVM "addons\service_point\service_point.sqf";};
