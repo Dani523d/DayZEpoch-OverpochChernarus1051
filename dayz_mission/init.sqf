@@ -127,9 +127,6 @@ call compile preprocessFileLineNumbers "custom\snap_build\compiles.sqf";
 // fast trading
 call compile preprocessFileLineNumbers "overwrites\fast_trading\player_traderMenuHive.sqf";
 
-// slow zombies
-call compile preprocessFileLineNumbers "overwrites\slow_zombies\init.sqf";
-
 if(!isServer) then {execVM "addons\service_point\service_point.sqf";};
 
 //spawn chooser
