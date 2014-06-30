@@ -4,9 +4,9 @@ call compile preprocessFileLineNumbers "addons\plotbuff\config.sqf";
 diag_log text "PLOTBUFF: spawning thread...";
 [] spawn {
     diag_log text "PLOTBUFF: waiting for player reference";
-    waitUntil {!(isNil player)};
+    waitUntil {!(isNull player);};
     diag_log text "PLOTBUFF: launching main removal loop";
-    while {!(isNil player)} do {
+    while {!(isNull player)} do {
         private["_removedZombies"];
         _removedZombies = 0;
         {
