@@ -1,3 +1,6 @@
+//### BEGIN MODIFIED CODE: spawn multiplier
+for "_i" from 1 to (round DZE_ZOMBIE_SPAWN_MULTIPLIER) step 1 do {
+//### END MODIFIED CODE: spawn multiplier	
 private ["_position","_unitTypes","_radius","_method","_agent"];
 
 _position = _this select 0;
@@ -158,3 +161,6 @@ if ((dayz_spawnZombies < _maxControlledZombies) && (dayz_CurrentNearByZombies < 
 		//### BEGIN MODIFIED CODE: slow zombies
 	};
 };
+//### BEGIN MODIFIED CODE: spawn multiplier
+};
+//### END MODIFIED CODE: spawn multiplier	
