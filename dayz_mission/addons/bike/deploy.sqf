@@ -42,10 +42,12 @@ while {!_isLoopDone} do {
 };
 
 if(!_isAnimationCompleted) exitWith {
+    DZE_BIKE_DEPLOYING = false;
     taskHint ["Bike building cancelled!", [0.972549,0.121568,0,1], "taskFailed"];
 };
 
 if(!(player hasWeapon "ItemToolbox")) exitWith {
+    DZE_BIKE_DEPLOYING = false;
     taskHint ["You need a toolbox to craft a bike!", [0.972549,0.121568,0,1], "taskFailed"];
 };
 
