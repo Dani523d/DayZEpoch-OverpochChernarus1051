@@ -124,14 +124,14 @@ call compile preprocessFileLineNumbers "addons\plotbuff\init.sqf";
 // snap build
 call compile preprocessFileLineNumbers "custom\snap_build\compiles.sqf";
 
-// fast trading
-call compile preprocessFileLineNumbers "overwrites\fast_trading\player_traderMenuHive.sqf";
-
 // loot spawn adjustments
 call compile preprocessFileLineNumbers "overwrites\lootspawn\init.sqf";
 
 // slow zombies
 call compile preprocessFileLineNumbers "overwrites\slow_zombies\init.sqf";
+
+// fast trading
+call compile preprocessFileLineNumbers "overwrites\fast_trading\init.sqf";
 
 if(!isServer) then {execVM "addons\service_point\service_point.sqf";};
 
