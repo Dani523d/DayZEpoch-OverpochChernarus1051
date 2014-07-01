@@ -1,5 +1,5 @@
 //### BEGIN MODIFIED CODE: spawn multiplier
-for "_i" from 1 to (round DZE_ZOMBIE_SPAWN_MULTIPLIER) step 1 do {
+for "_i" from 1 to (round DZE_ZOMBIE_SPAWN_MULTIPLIER) do {
 //### END MODIFIED CODE: spawn multiplier	
 private ["_position","_unitTypes","_radius","_method","_agent"];
 
