@@ -9,7 +9,7 @@ dayz_maxNearByZombies = 200;
 dayz_maxGlobalZombiesInit = 500;
 dayz_maxLocalZombies = 500;
 dayz_fullMoonNights = false;
-DZE_ConfigTrader = true;
+DZE_ConfigTrader = false;
 
 /* these people can build anywhere */
 DZE_BUILD_ADMINS = ["38130182"];
