@@ -63,7 +63,7 @@ DZAI_refreshRate = 15;
 DZAI_zDetectRange = 200;									
 
 //Enable or disable AI hostility to zombies. If enabled, AI will attack zombies. (default: true)
-DZAI_zombieEnemy = false;	
+DZAI_zombieEnemy = true;	
 
 //Enable or disable "Free For All" mode. If FFA mode is enabled, all AI groups will be hostile to each other. (default: false)
 //WARNING: This option will affect ALL AI spawned, including those spawned from other addons that include AI. Not recommended to enable if using other addons with AI.
