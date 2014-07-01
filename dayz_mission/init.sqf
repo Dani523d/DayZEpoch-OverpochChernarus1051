@@ -100,22 +100,25 @@ execVM "\z\addons\dayz_code\external\DynamicWeatherEffects.sqf";
 
 //### BEGIN INSERTED CODE: load addons 
 
-//config
+// config
 call compile preprocessFileLineNumbers "config.sqf";
 
-//deployable bike
+// click actions
+call compile preprocessFileLineNumbers "overwrites\click_actions\init.sqf";
+
+// deployable bike
 call compile preprocessFileLineNumbers "addons\bike\init.sqf";
 
-//suicide
+// suicide
 call compile preprocessFileLineNumbers "addons\suicide\init.sqf";
 
-//take clothes
+// take clothes
 call compile preprocessFileLineNumbers "addons\takeclothes\init.sqf";
 
-//extra buildings
+// extra buildings
 call compile preprocessFileLineNumbers "addons\buildings\init.sqf";
 
-//suicide
+// suicide
 call compile preprocessFileLineNumbers "addons\safezones\init.sqf";
 
 // plotbuff - zombie removal
