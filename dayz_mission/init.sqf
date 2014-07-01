@@ -127,9 +127,6 @@ call compile preprocessFileLineNumbers "custom\snap_build\compiles.sqf";
 // loot spawn adjustments
 call compile preprocessFileLineNumbers "overwrites\lootspawn\init.sqf";
 
-// slow zombies
-call compile preprocessFileLineNumbers "overwrites\slow_zombies\init.sqf";
-
 // fast trading
 call compile preprocessFileLineNumbers "overwrites\fast_trading\init.sqf";
 
