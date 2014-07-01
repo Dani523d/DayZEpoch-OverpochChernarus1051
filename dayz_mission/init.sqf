@@ -26,7 +26,7 @@ spawnArea= 1500; // Default = 1500
 MaxVehicleLimit = 50; // Default = 50
 MaxDynamicDebris = 100; // Default = 100
 dayz_MapArea = 14000; // Default = 10000
-dayz_maxLocalZombies = 6; // Default = 30 
+dayz_maxLocalZombies = 30; // Default = 30 
 
 dayz_paraSpawn = false;
 
@@ -45,7 +45,7 @@ DynamicVehicleDamageHigh = 100; // Default: 100
 DZE_BuildOnRoads = true; // Default: False
 
 EpochEvents = [["any","any","any","any",30,"crash_spawner"],["any","any","any","any",0,"crash_spawner"],["any","any","any","any",15,"supply_drop"]];
-dayz_fullMoonNights = false;
+dayz_fullMoonNights = true;
 
 //Load in compiled functions
 call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\variables.sqf";				//Initilize the Variables (IMPORTANT: Must happen very early)
@@ -129,6 +129,9 @@ call compile preprocessFileLineNumbers "overwrites\fast_trading\player_traderMen
 
 // loot spawn adjustments
 call compile preprocessFileLineNumbers "overwrites\lootspawn\init.sqf";
+
+// slow zombies
+call compile preprocessFileLineNumbers "overwrites\slow_zombies\init.sqf";
 
 if(!isServer) then {execVM "addons\service_point\service_point.sqf";};
 
