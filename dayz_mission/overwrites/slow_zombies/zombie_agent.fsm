@@ -135,7 +135,7 @@ link72[] = {55,7};
 link73[] = {56,3};
 link74[] = {57,1};
 globals[] = {25.000000,1,0,0,0,640,480,1,98,6316128,1,-542.928589,768.370728,798.530640,-417.959991,982,911,1};
-window[] = {2,-1,-1,-1,-1,955,175,1383,175,3,1000};
+window[] = {2,-1,-1,-1,-1,855,75,1283,75,3,1000};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -468,7 +468,7 @@ class FSM
        "_target = _agent call zombie_findTargetAgent;" \n
        "_isAlive = alive _agent;" \n
        "" \n
-       "_distance = 1;" \n
+       "_distance = 3;" \n
        "" \n
        "_targetPos = getPosATL _target;" \n
        "_selfPos = getPosATL _agent;" \n
