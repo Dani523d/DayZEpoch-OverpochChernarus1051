@@ -87,7 +87,7 @@ if (!isDedicated) then {
 
 	//Lights
 	//### BEGIN MODIFIED CODE: night lighting
-	if(DZE_NIGHT_LIGHTS) then {[false,12] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";};
+	//if(DZE_NIGHT_LIGHTS) then {[false,12] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";};
 	//### END MODIFIED CODE: night lighting
 	
 };
@@ -140,6 +140,9 @@ call compile preprocessFileLineNumbers "overwrites\slow_zombies\init.sqf";
 
 // service point
 if(!isServer) then {execVM "addons\service_point\service_point.sqf";};
+
+// night lights
+if(DZE_NIGHT_LIGHTS) then {[false,12] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";};
 
 //spawn chooser
 espawn = compile preprocessFileLineNumbers "spawn\spawn.sqf";
