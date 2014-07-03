@@ -5,7 +5,6 @@ DZE_BuildOnRoads = true;
 DZE_requireplot = 1;
 DZE_StaticConstructionCount = 1;
 
-dayz_maxLocalZombies = 6;
 dayz_fullMoonNights = false;
 DZE_ConfigTrader = false;
 

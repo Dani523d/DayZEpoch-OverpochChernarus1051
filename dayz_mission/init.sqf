@@ -135,6 +135,10 @@ call compile preprocessFileLineNumbers "overwrites\lootspawn\init.sqf";
 // fast trading
 call compile preprocessFileLineNumbers "overwrites\fast_trading\init.sqf";
 
+// slow zombies
+call compile preprocessFileLineNumbers "overwrites\slow_zombies\init.sqf";
+
+// service point
 if(!isServer) then {execVM "addons\service_point\service_point.sqf";};
 
 //spawn chooser
