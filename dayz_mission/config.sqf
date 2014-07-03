@@ -11,3 +11,6 @@ DZE_ConfigTrader = false;
 
 /* these people can build anywhere */
 DZE_BUILD_ADMINS = ["38130182"];
+
+/* night lighting - warning: may cause lag */
+DZE_NIGHT_LIGHTS = true;

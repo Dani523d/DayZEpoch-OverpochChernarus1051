@@ -86,7 +86,9 @@ if (!isDedicated) then {
 	//### END MODIFIED CODE: infistar - disable default antihack
 
 	//Lights
-	//[false,12] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";
+	//### BEGIN MODIFIED CODE: night lighting
+	if(DZE_NIGHT_LIGHTS) then {[false,12] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";};
+	//### END MODIFIED CODE: night lighting
 	
 };
 
