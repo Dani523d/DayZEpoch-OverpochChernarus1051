@@ -33,6 +33,6 @@ while {_run} do
 	diag_log format ["[DZMS]: Running Major Mission %1.",_varName];
 	
 	//Let's wait for it to finish or timeout
-	waitUntil {DZMSMajDone};
+	waitUntil {!(isNil "DZMSMajDone") && {DZMSMajDone};};
 	DZMSMajDone = nil;
 };
