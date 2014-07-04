@@ -154,7 +154,7 @@
                                     _x allowDamage true;
                             };
                     };
-                   
+                    if (isNil 'gmdadmin') then {gmdadmin = 0;};
                     if (gmdadmin == 1) exitWith {};
                     player allowDamage true;
                     fnc_usec_damageHandler = compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\fn_damageHandler.sqf';
