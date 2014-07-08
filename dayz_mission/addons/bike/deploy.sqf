@@ -15,12 +15,12 @@ if(!(isNull _display)) then {
         _exitWith = (_x select 1);
     };
 } forEach [
-    [(getPlayerUID player) in DZE_DEPLOYABLE_ADMINS,                                          "admin"],
-    [!(call fnc_can_do),                                                               format["You can't build a %1 right now.",(_this call getDeployableDisplay)]],
-    [(player getVariable["combattimeout", 0]) >= time,                                 format["Can't build a %1 while in combat!",(_this call getDeployableDisplay)]],
-    [!((_this call getDeployableKitClass) in ((weapons player) + (magazines player))), format["You need a %1 to build a %2!",(_this call getDeployableKitDisplay),(_this call getDeployableDisplay)]],
-    [DZE_DEPLOYING,                                                                           "You are already building something!"],
-    [DZE_PACKING,                                                                             "You are already packing something!"]
+    [(getPlayerUID player) in DZE_DEPLOYABLE_ADMINS,                                                                   "admin"],
+    [!(call fnc_can_do),                                                                                        format["You can't build a %1 right now.",(_this call getDeployableDisplay)]],
+    [(player getVariable["combattimeout", 0]) >= time,                                                          format["Can't build a %1 while in combat!",(_this call getDeployableDisplay)]],
+    [!((_this call getDeployableKitClass) in ((weapons player) + (magazines player) + [currentWeapon player])), format["You need a %1 to build a %2!",(_this call getDeployableKitDisplay),(_this call getDeployableDisplay)]],
+    [DZE_DEPLOYING,                                                                                                    "You are already building something!"],
+    [DZE_PACKING,                                                                                                      "You are already packing something!"]
 ];
 
 // if we got an error message, show it and leave the script

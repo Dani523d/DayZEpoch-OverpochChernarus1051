@@ -50,11 +50,6 @@ getDeployableClass = {
     (DZE_DEPLOYABLES select _this) select 9
 };
 
-/* this gets the array of parts that is required to build the item */
-getDeployableParts = {
-    (DZE_DEPLOYABLES select _this) select 10
-};
-
 /* should players be allowed to pack deployables at all? */
 getDeployablePackAny = {
     ((_this call getDamageLimit) >= 0) || (!(isNull player) && {(getPlayerUID player) in DZE_DEPLOYABLE_ADMINS});   

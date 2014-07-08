@@ -22,7 +22,7 @@
     // inflate deployables
     DZE_DEPLOYABLES = [];
     {
-        private["_class","_type","_distance","_deployables","_dirOffset","_packDist","_packOthers","_clearCargo","_permanent","_damage","_parts"];
+        private["_class","_type","_distance","_deployables","_dirOffset","_packDist","_packOthers","_clearCargo","_permanent","_damage"];
         _class       = _x select 0;
         _type        = _x select 1;
         _distance    = _x select 2;
@@ -33,9 +33,8 @@
         _clearCargo  = _x select 7;
         _permanent   = _x select 8;
         _deployables = _x select 9;
-        _parts       - _x select 10;
         {
-            DZE_DEPLOYABLES set [count DZE_DEPLOYABLES,[_class,_type,_distance,_dirOffset,_packDist,_damage,_packOthers,_clearCargo,_permanent,_x,_parts]];
+            DZE_DEPLOYABLES set [count DZE_DEPLOYABLES,[_class,_type,_distance,_dirOffset,_packDist,_damage,_packOthers,_clearCargo,_permanent,_x]];
         } forEach _deployables;
     } forEach DZE_DEPLOYABLES_CONFIG;
 
