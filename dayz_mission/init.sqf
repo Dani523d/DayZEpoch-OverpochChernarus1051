@@ -124,7 +124,8 @@ call compile preprocessFileLineNumbers "addons\safezones\init.sqf";
 call compile preprocessFileLineNumbers "addons\plotbuff\init.sqf";
 
 // snap build
-call compile preprocessFileLineNumbers "custom\snap_build\compiles.sqf";
+//call compile preprocessFileLineNumbers "custom\snap_build\compiles.sqf";
+call compile preprocessFileLineNumbers "custom\compiles.sqf";
 
 // loot spawn adjustments
 call compile preprocessFileLineNumbers "overwrites\lootspawn\init.sqf";
@@ -140,6 +141,8 @@ if(!isServer) then {execVM "addons\service_point\service_point.sqf";};
 
 // night lights
 if(DZE_NIGHT_LIGHTS) then {[false,12] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";};
+
+execVM "addons\R3F_ARTY_AND_LOG\init.sqf";
 
 //spawn chooser
 espawn = compile preprocessFileLineNumbers "spawn\spawn.sqf";

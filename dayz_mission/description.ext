@@ -151,7 +151,7 @@ class DayZ_loadingScreen
 
 //### BEGIN MODIFIED CODE: snap build
 
-#include "custom\snap_build\points.hpp"
+#include "custom\snap_pro\snappoints.hpp"
 
 //### END MODIFIED CODE: snap build
 
@@ -163,3 +163,11 @@ class DayZ_loadingScreen
 #include "spawn\spawn.hpp"
 
 //### END MODIFIED CODE: ebay spawn
+
+//### BEGIN MODIFIED CODE: towing
+#include "addons\R3F_ARTY_AND_LOG\desc_include.h"
+class RscTitles
+{
+	#include "addons\R3F_ARTY_AND_LOG\desc_rsct_include.h"
+};
+//### END MODIFIED CODE: towing

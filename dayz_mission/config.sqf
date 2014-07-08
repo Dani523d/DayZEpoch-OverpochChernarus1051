@@ -5,7 +5,7 @@ DZE_BuildOnRoads = true;
 DZE_requireplot = 1;
 DZE_StaticConstructionCount = 1;
 
-dayz_fullMoonNights = false;
+dayz_fullMoonNights = true;
 DZE_ConfigTrader = false;
 
 /* these people can build anywhere */
