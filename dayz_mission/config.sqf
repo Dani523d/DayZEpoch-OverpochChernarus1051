@@ -4,7 +4,7 @@ DZE_BuildingLimit = 9999;
 DZE_BuildOnRoads = true;
 DZE_requireplot = 0;
 DZE_StaticConstructionCount = 1;
-
+DZE_ForceNameTagsInTrader = true;
 dayz_fullMoonNights = true;
 
 /* night lighting - warning: may cause lag */

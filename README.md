@@ -1,4 +1,4 @@
-##version 2.0.0 (7/9/2014) 
+##version 2.1.0 (7/12/2014) 
 
 FEATURES
 ========
@@ -31,3 +31,4 @@ FEATURES
 + Enhanced Spawn Select (ebay)
 + Epoch Mission System 0.3 (Fuchs/defents edit)
 + Loot Spawn Tweaks (no more running away from buildings - mudzereli)
++ Weapon Attachment Mod (mudzereli)

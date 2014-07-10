@@ -55,6 +55,9 @@ progressLoadingScreen 0.2;
 call compile preprocessFileLineNumbers "\z\addons\dayz_code\medical\setup_functions_med.sqf";	//Functions used by CLIENT for medical
 progressLoadingScreen 0.4;
 call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\compiles.sqf";				//Compile regular functions
+//### BEGIN MODIFIED CODE: deployable bike
+call compile preprocessFileLineNumbers "addons\bike\init.sqf";
+//### END MODIFIED CODE: deployable bike
 progressLoadingScreen 0.5;
 call compile preprocessFileLineNumbers "server_traders.sqf";				//Compile trader configs
 progressLoadingScreen 1.0;
@@ -108,9 +111,6 @@ call compile preprocessFileLineNumbers "config.sqf";
 // suicide
 call compile preprocessFileLineNumbers "addons\suicide\init.sqf";
 
-// deployable bike
-call compile preprocessFileLineNumbers "addons\bike\init.sqf";
-
 // take clothes
 call compile preprocessFileLineNumbers "addons\takeclothes\init.sqf";
 
@@ -122,6 +122,9 @@ call compile preprocessFileLineNumbers "addons\safezones\init.sqf";
 
 // plotbuff - zombie removal
 call compile preprocessFileLineNumbers "addons\plotbuff\init.sqf";
+
+// weapon mod
+call compile preprocessFileLineNumbers "addons\wmod\init.sqf";
 
 // snap build
 call compile preprocessFileLineNumbers "custom\compiles.sqf";
