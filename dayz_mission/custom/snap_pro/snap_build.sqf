@@ -3,24 +3,23 @@
 // July 6 2014		|
 //------------------|
 
-private ["_object","_objectSnapGizmo","_objColorActive","_objColorInactive","_classname","_whitelist","_points","_cfg","_cnt","_pos","_findWhitelisted","_nearbyObject","_posNearby","_selectedAction","_newPos","_pointsNearby","_onWater"];
+private ["_object","_objectSnapGizmo","_objColorActive","_objColorInactive","_classname","_whitelist","_points","_cfg","_cnt","_pos","_findWhitelisted","_nearbyObject","_posNearby","_selectedAction","_newPos","_pointsNearby","_onWater","_params"];
 //Args
-snapActionState = _this select 3 select 0;
-_object = _this select 3 select 1;
-_classname = _this select 3 select 2;
-_objectHelper = _this select 3 select 3;
-_selectedAction = _this select 3 select 4;
+if (!DZE_SNAP_PRO_USE_COMMAND_MENU) then {
+	_params = _this select 3;
+} else {
+	_params = _this;
+};
+snapActionState = _params select 0;
+_object         = _params select 1;
+_classname      = _params select 2;
+_objectHelper   = _params select 3;
+_selectedAction = _params select 4;
 
 //Snap config file
 _cfg = (missionConfigFile >> "SnapBuilding" >> _classname);
 _whitelist = getArray (_cfg >> "snapTo");
 _points = getArray (_cfg >> "points");
-
-/*
-if(!(isNil "DZE_SNAP_PRO_COMMAND_MENU") && (count _points) > 0) then {
-	showCommandingMenu "#USER:DZE_SNAP_PRO_COMMAND_MENU";
-};
-*/
 
 //colors
 _objColorActive = "#(argb,8,8,3)color(0,0.92,0.06,1,ca)";
@@ -52,15 +51,22 @@ fnc_snapActionCleanup = {
 			}count _points;
 		};
 	} else {
+		DZE_SNAP_PRO_CURR_OBJECT       = _object;
+		DZE_SNAP_PRO_CURR_CLASSNAME    = _classname;
+		DZE_SNAP_PRO_CURR_OBJECTHELPER = _objectHelper;
 		DZE_SNAP_PRO_COMMAND_MENU = [
-			["",true],
-			[format["Snap: %1",snapActionState], [DZE_SNAP_BUILD_NUMKEYS select 0], "", -5, [["expression", "[snapActionState,_object,_classname,_objectHelper] execVM 'custom\snap_pro\snap_build.sqf';"]], "1", "1"]
+			["",true]
 		];
-		if(snapActionState == "ON") then {
-			DZE_SNAP_PRO_COMMAND_MENU set [count DZE_SNAP_PRO_COMMAND_MENU, [format["Snap Point: %1",snapActionStateSelect], [DZE_SNAP_BUILD_NUMKEYS select 1], "", -5, [["expression", "[snapActionStateSelect,_object,_classname,_objectHelper] execVM 'custom\snap_pro\snap_build.sqf';"]], "1", "1"]];
+		if(_s1 > 0) then {
+			DZE_SNAP_PRO_COMMAND_MENU set [count DZE_SNAP_PRO_COMMAND_MENU,[format["Snap: %1",snapActionState], [DZE_SNAP_BUILD_NUMKEYS select ((count DZE_SNAP_PRO_COMMAND_MENU) - 1)], "", -5, [["expression", "[snapActionState,DZE_SNAP_PRO_CURR_OBJECT,DZE_SNAP_PRO_CURR_CLASSNAME,DZE_SNAP_PRO_CURR_OBJECTHELPER] execVM 'custom\snap_pro\snap_build.sqf';"]], "1", "1"]];
+		};
+		if(_s2 > 0) then {
+			DZE_SNAP_PRO_COMMAND_MENU set [count DZE_SNAP_PRO_COMMAND_MENU, [format["Snap Point: %1",snapActionStateSelect], [DZE_SNAP_BUILD_NUMKEYS select ((count DZE_SNAP_PRO_COMMAND_MENU) - 1)], "", -5, [["expression", "[snapActionStateSelect,DZE_SNAP_PRO_CURR_OBJECT,DZE_SNAP_PRO_CURR_CLASSNAME,DZE_SNAP_PRO_CURR_OBJECTHELPER] execVM 'custom\snap_pro\snap_build.sqf';"]], "1", "1"]];
+		};
+		if(_s3 > 0) then {
 			{
-				DZE_SNAP_PRO_COMMAND_MENU set [count DZE_SNAP_PRO_COMMAND_MENU, [format["Select: %1",_x select 3], [DZE_SNAP_BUILD_NUMKEYS select (_foreachindex + 2)], "", -5, [["expression", format["['Selected',_object,_classname,_objectHelper,%1] execVM 'custom\snap_pro\snap_build.sqf';",_foreachindex]]], "1", "1"]];
-			} forEach _points;		
+				DZE_SNAP_PRO_COMMAND_MENU set [count DZE_SNAP_PRO_COMMAND_MENU, [format["Select: %1",_x select 3], [DZE_SNAP_BUILD_NUMKEYS select ((count DZE_SNAP_PRO_COMMAND_MENU) - 1)], "", -5, [["expression", format["['Selected',DZE_SNAP_PRO_CURR_OBJECT,DZE_SNAP_PRO_CURR_CLASSNAME,DZE_SNAP_PRO_CURR_OBJECTHELPER,%1] execVM 'custom\snap_pro\snap_build.sqf';",_foreachindex]]], "1", "1"]];
+			} forEach _points;
 		};
 		showCommandingMenu "#USER:DZE_SNAP_PRO_COMMAND_MENU";
 	};
@@ -259,7 +265,7 @@ fnc_initSnapTutorial = {
 switch (snapActionState) do {
 	case "Init": {
 		["init",true] call fnc_initSnapTutorial;
-		snapActionState = "OFF";
+		snapActionState = DZE_SNAP_PRO_DEFAULT_SNAP_ACTION;
 		[1,0,0] call fnc_snapActionCleanup;
 		[] spawn {
 		while {true} do {
@@ -311,5 +317,6 @@ switch (snapActionState) do {
 	};
 	_cnt = _cnt+1;
 }count snapGizmos;
+	if (DZE_SNAP_PRO_USE_COMMAND_MENU) then {snapActionState = "ON"; [1,1,1] call fnc_snapActionCleanup;};
 	};
 };

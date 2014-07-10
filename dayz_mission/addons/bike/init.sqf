@@ -22,7 +22,7 @@
     // inflate deployables
     DZE_DEPLOYABLES = [];
     {
-        private["_class","_type","_distance","_deployables","_dirOffset","_packDist","_packOthers","_clearCargo","_permanent","_damage"];
+        private["_class","_type","_distance","_deployables","_dirOffset","_packDist","_packOthers","_clearCargo","_permanent","_damage","_parts"];
         _class       = _x select 0;
         _type        = _x select 1;
         _distance    = _x select 2;
@@ -33,8 +33,9 @@
         _clearCargo  = _x select 7;
         _permanent   = _x select 8;
         _deployables = _x select 9;
+        _parts       = _x select 10;
         {
-            DZE_DEPLOYABLES set [count DZE_DEPLOYABLES,[_class,_type,_distance,_dirOffset,_packDist,_damage,_packOthers,_clearCargo,_permanent,_x]];
+            DZE_DEPLOYABLES set [count DZE_DEPLOYABLES,[_class,_type,_distance,_dirOffset,_packDist,_damage,_packOthers,_clearCargo,_permanent,_x,_parts]];
         } forEach _deployables;
     } forEach DZE_DEPLOYABLES_CONFIG;
 
@@ -55,10 +56,21 @@
     DZE_COLOR_PRIMARY = [(51/255),(181/255),(229/255),1];
     DZE_COLOR_SUCCESS = [(153/255),(204/255),0,1];
     DZE_COLOR_DANGER  = [1,(68/255),(68/255),1];
+    
 
     // wait for login before we start checking actions
     diag_log text "BIKE: waiting for login...";
     waitUntil{!isNil "PVDZE_plr_LoginRecord"};
+
+    // unlock locked deployable vehicles
+    [] spawn {
+        waitUntil {sm_done;};
+        {
+            if((local _x) && (parseNumber(_x getVariable["CharacterID","0"]) > 500000)) then {
+                _x setVehicleLock "UNLOCKED";
+            };
+        } forEach (allMissionObjects "allVehicles");
+    };
 
     while {true} do {
         if(!isNull player) then {

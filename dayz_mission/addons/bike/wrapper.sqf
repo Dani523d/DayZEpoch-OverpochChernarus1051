@@ -50,6 +50,11 @@ getDeployableClass = {
     (DZE_DEPLOYABLES select _this) select 9
 };
 
+/* the parts required to make this item */
+getDeployableParts = {
+    (DZE_DEPLOYABLES select _this) select 10    
+};
+
 /* should players be allowed to pack deployables at all? */
 getDeployablePackAny = {
     ((_this call getDamageLimit) >= 0) || (!(isNull player) && {(getPlayerUID player) in DZE_DEPLOYABLE_ADMINS});   
@@ -106,4 +111,40 @@ getDeployableIndex = {
         }
     } forEach DZE_DEPLOYABLES;
     _return
+};
+
+/* check if player has required parts to build the item */
+/* [player,_partIndex] call getHasDeployableParts; */
+getHasDeployableParts = {
+    private["_player","_weapons","_parts","_item","_params","_index","_part","_return","_inventory"];
+    _params    = _this;
+    _player    = _params select 0;
+    _index     = _params select 1;
+    _parts     = _index call getDeployableParts;
+    _inventory = (weapons _player) + (magazines _player);
+    _return    = true;
+    {
+        _part = _x;
+        if(!(_part in _inventory)) exitWith {_return = false;};
+        {
+            _item = _x;
+            if(_item == _part) exitWith {_inventory set [_forEachIndex,"nil"];};
+        } forEach _inventory;
+    } forEach _parts;
+    _return
+};
+
+/* remove this item's parts from the players inventory */
+/* [player,_partIndex] call removeDeployableParts; */
+removeDeployableParts = {
+    private["_player","_params","_index","_parts","_part"];
+    _params = _this;
+    _player = _params select 0;
+    _index  = _params select 1;
+    _parts  = _index call getDeployableParts;
+    {
+        _part = _x;
+        _player removeWeapon _part;
+        _player removeMagazine _part;
+    } forEach _parts;
 };

@@ -45,11 +45,15 @@ if(_exitWith != "nil" && _exitWith != "admin") exitWith {
 };
 
 // give the stuff back and delete the vehicle
-if((_deployable call getDeployableKitType) == "CfgWeapons") then {
-    player addWeapon (_deployable call getDeployableKitClass);
-} else {
-    player addMagazine (_deployable call getDeployableKitClass);
-};
+{
+    if(isClass(configFile >> "CfgWeapons" >> _x)) then {
+        player addWeapon _x;
+    };
+    if(isClass(configFile >> "CfgMagazines" >> _x)) then {
+        player addMagazine _x;
+    };
+} forEach (_deployable call getDeployableParts);
+
 if(_deployable call getPermanent) then {
     PVDZE_obj_Delete = [_cursorTarget getVariable["ObjectID","0"],_cursorTarget getVariable["ObjectUID","0"],player];
     publicVariableServer "PVDZE_obj_Delete";
