@@ -124,7 +124,6 @@ call compile preprocessFileLineNumbers "addons\safezones\init.sqf";
 call compile preprocessFileLineNumbers "addons\plotbuff\init.sqf";
 
 // snap build
-//call compile preprocessFileLineNumbers "custom\snap_build\compiles.sqf";
 call compile preprocessFileLineNumbers "custom\compiles.sqf";
 
 // loot spawn adjustments
