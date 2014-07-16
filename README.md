@@ -1,4 +1,6 @@
-##version 2.1.0 (7/12/2014) 
+##version 3.0.0 -- FINAL (7/19/2014) 
+
+This will be the last version of this (aside from bug fixes) until 1.0.5.2 comes out.
 
 FEATURES
 ========

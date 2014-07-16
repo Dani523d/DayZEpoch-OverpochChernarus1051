@@ -660,7 +660,7 @@ donorListClasses = [
 	[]
 ];
 
-DefaultMagazines = ["ItemBandage","ItemBandage","ItemBandage","ItemPainkiller"]; 
+DefaultMagazines = ["ItemBandage","ItemBandage","ItemPainkiller"]; 
 DefaultWeapons = ["ItemFlashlight"]; 
 DefaultBackpack = "DZ_Patrol_Pack_EP1";
 donorClassLvl1 = ["0","0","0"];
@@ -673,7 +673,8 @@ presetClasses = [
 	["Rocker","Rocker1_DZ",["8Rnd_9x18_Makarov","8Rnd_9x18_Makarov","8Rnd_9x18_Makarov"],["Makarov","ItemToolbox"],"DZ_ALICE_Pack_EP1",[],[],0,0],
 	["Priest","Priest_DZ",["15Rnd_9x19_M9","15Rnd_9x19_M9","15Rnd_9x19_M9","ItemBloodbag"],["M9","ItemToolbox"],"",[],[],0,0],
 	["Police Officer","RU_Policeman_DZ",["6Rnd_45ACP","6Rnd_45ACP","6Rnd_45ACP"],["revolver_EP1","ItemMap","ItemToolbox"],"",[],[],0,0],
-	["Businessman","Functionary1_EP1_DZ",["8Rnd_9x18_MakarovSD","8Rnd_9x18_MakarovSD","8Rnd_9x18_MakarovSD","ItemSilverBar10oz"],["MakarovSD","ItemToolbox"],"",[],[],0,0]
+	["Businessman","Functionary1_EP1_DZ",["8Rnd_9x18_MakarovSD","8Rnd_9x18_MakarovSD","8Rnd_9x18_MakarovSD","ItemSilverBar10oz"],["MakarovSD","ItemToolbox"],"",[],[],0,0],
+	["Old School","Survivor2_DZ",[],[],"",[],[],0,0]
 ];
 
 publicVariable "donorListBase";

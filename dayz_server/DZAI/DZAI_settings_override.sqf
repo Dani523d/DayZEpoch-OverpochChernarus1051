@@ -1,25 +1,17 @@
-/*
-	DZAI User-Specified Settings File
-	
-	Description: 	Use this file to store your preferred settings. The variables stored in this file will override DZAI's default settings in DZAI\init\dzai_config.sqf.
-					
-	Instructions:	Copy over the lines from DZAI\init\dzai_config.sqf containing the setting(s) that you wish to keep after each DZAI update.
-					Whenever you update to a newer version of DZAI, overwrite the default DZAI_settings_override file with your edited copy.
-	
-	Reminder: Remember to check if anything has changed in the dzai_config.sqf file after each update to DZAI.
-	
-	Example: If you always want your server to have helicopters enabled with a maximum of 5 helicopters, and using the UH1H and Mi17, then the contents of this file would look like this:
-	
-	-------------------------(Begin Example File)-------------------------
-	
-
-	//Add your preferred settings below this line.
-	
-	DZAI_maxHeliPatrols = 5;									//Maximum number of active AI helicopters patrols. (Default: 0).
-	DZAI_heliTypes = ["UH1H_DZ","Mi17_DZ"];						//Classnames of helicopter types to use. (Default: "UH1H_DZ").
-
-	-------------------------(End of Example File)-------------------------
-*/
-
-//Add your preferred settings below this line.
-
+DZAI_weaponNoise = true;
+DZAI_humanityGain = -50;
+DZAI_clientRadio = true;
+DZAI_zombieEnemy = true;
+DZAI_maxHeliPatrols = 6;
+DZAI_heliList = [["UH1H_DZ",1]];
+{
+    DZAI_heliList set [count DZAI_heliList,[_x,1]];
+} forEach ["GNT_C185","GNT_C185F","GNT_C185R","GNT_C185E","GNT_C185C","GNT_C185T","GNT_C185U","AN2_DZ","BAF_Merlin_DZE","CSJ_GyroC","CSJ_GyroP","CSJ_GyroCover","Ka137_PMC"];
+DZAI_maxLandPatrols = 15;
+{
+    DZAI_vehList set [count DZAI_vehList,[_x,1]];
+} forEach ["Tractor","policecar","car_sedan","HMMWV","UAZ_CDF","Ural_CDF","UralOpen_CDF","UAZ_RU","Skoda","BRDM2_Gue","SkodaBlue","SkodaRed","SkodaGreen","Pickup_PK_GUE","Pickup_PK_INS","Offroad_DSHKM_Gue","Offroad_SPG9_Gue","SUV_Camo","SUV_Blue","SUV_Red","SUV_Green","SUV_Yellow","SUV_White","SUV_Pink","SUV_Charcoal","SUV_Silver","SUV_TK_CIV_EP1_DZE1"];
+DZAI_vehGunnerUnits = 1;
+//DZAI_vehCargoUnits = 1;
+DZAI_vehUnitLevel = 1;
+DZAI_dynAISpawns = false;
