@@ -12,7 +12,7 @@ briefing = 0;
 debriefing = 0;
 
 onPauseScript = "";
-loadScreen = "addons\screen.png";
+loadScreen = "addons\screen.jpg";
 
 class Header
 {
