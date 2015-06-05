@@ -117,8 +117,9 @@ call compile preprocessFileLineNumbers "addons\takeclothes\init.sqf";
 // extra buildings
 call compile preprocessFileLineNumbers "addons\buildings\init.sqf";
 
-// suicide
-call compile preprocessFileLineNumbers "addons\safezones\init.sqf";
+// safezones
+//call compile preprocessFileLineNumbers "addons\safezones\init.sqf";
+call compile preprocessFileLineNumbers "addons\safezones\SafeZone.sqf";
 
 // plotbuff - zombie removal
 call compile preprocessFileLineNumbers "addons\plotbuff\init.sqf";
