@@ -1,7 +1,11 @@
+//Overpoch on (modifies loot and traders to seel/spawn overwatch items)
+Overpoch = true;
+
 /*	
 	For DayZ Epoch
 	Addons Credits: Jetski Yanahui by Kol9yN, Zakat, Gerasimow9, YuraPetrov, zGuba, A.Karagod, IceBreakr, Sahbazz
 */
+
 startLoadingScreen ["","RscDisplayLoadCustom"];
 cutText ["","BLACK OUT"];
 enableSaving [false, false];
@@ -22,9 +26,10 @@ enableSentences false;
 // DayZ Epoch config
 spawnShoremode = 1; // Default = 1 (on shore)
 spawnArea= 1500; // Default = 1500
-
-MaxVehicleLimit = 50; // Default = 50
-MaxDynamicDebris = 100; // Default = 100
+//Config based traders
+DZE_ConfigTrader = true;
+MaxVehicleLimit = 100; // Default = 50
+MaxDynamicDebris = 200; // Default = 100
 dayz_MapArea = 14000; // Default = 10000
 dayz_maxLocalZombies = 30; // Default = 30 
 
@@ -59,13 +64,21 @@ call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\compiles.sqf";	
 call compile preprocessFileLineNumbers "addons\bike\init.sqf";
 //### END MODIFIED CODE: deployable bike
 progressLoadingScreen 0.5;
-call compile preprocessFileLineNumbers "server_traders.sqf";				//Compile trader configs
+if(Overpoch)then{
+call compile preprocessFileLineNumbers "server_traders_overpoch.sqf";				//Compile trader configs
+}else{
+call compile preprocessFileLineNumbers "server_traders_epoch.sqf";
+};
 progressLoadingScreen 1.0;
 
 "filmic" setToneMappingParams [0.153, 0.357, 0.231, 0.1573, 0.011, 3.750, 6, 4]; setToneMapping "Filmic";
 
 if (isServer) then {
+if(Overpoch)then{
+	call compile preprocessFileLineNumbers "\z\addons\dayz_server\missions\DayZ_Epoch_11.Chernarus\dynamic_vehicle_overpoch.sqf";
+}else{
 	call compile preprocessFileLineNumbers "\z\addons\dayz_server\missions\DayZ_Epoch_11.Chernarus\dynamic_vehicle.sqf";
+};
 	//Compile vehicle configs
 	
 	// Add trader citys

@@ -175,3 +175,7 @@ class RscTitles
 //### BEGIN MODIFIED CODE: loot
 #include "overwrites\loot\CfgBuildingLoot.hpp"
 //### END MODIFIED CODE: loot
+
+//### BEGIN MODIFIED CODE: Traders
+#include "addons\CfgServerTrader\cfgServerTrader.hpp"
+//### END MODIFIED CODE: Traders
