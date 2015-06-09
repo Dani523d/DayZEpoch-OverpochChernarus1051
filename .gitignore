@@ -1,3 +1,9 @@
+# =========================
+# Operating System Files
+# =========================
+# Windows
+# =========================
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
@@ -13,11 +19,9 @@ $RECYCLE.BIN/
 *.msi
 *.msm
 *.msp
+*.exe
 
 # =========================
-# Operating System Files
-# =========================
-
 # OSX
 # =========================
 
@@ -37,3 +41,9 @@ Icon
 
 *.bat
 *.lnk
+
+# =========================
+# InfiStar AntiHack
+# =========================
+AH.sqf
+AHconfig.sqf
