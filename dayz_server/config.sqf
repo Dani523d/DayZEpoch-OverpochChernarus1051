@@ -5,4 +5,4 @@ DZE_ENABLE_INFISTAR = true;
 DZE_ENABLE_DZAI = true;
 
 /* should vehicles be unlocked on restart? */
-DZE_VEHICLES_SPAWN_UNLOCKED = true;
+DZE_VEHICLES_SPAWN_UNLOCKED = false;
