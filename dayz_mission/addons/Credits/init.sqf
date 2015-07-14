@@ -9,15 +9,12 @@
     sleep 10; //Wait in seconds before the credits start after player IS ingame
      
     DZE_SCROLLING_CREDITS = [
-        ["Welcome to",["DracoNet - Chernarus Overpoch"],"#33b5e5"],
-        ["Admins",["Malik", "Draco"],"#ff4444"],
-        ["Moderators",["Dani"],"#ffbb33"],
+        ["Welcome to",["ErDuSurvivor - Chernarus Overpoch"],"#33b5e5"],
+        ["Staff",["Malik", "Draco"],"#ff4444"],
         ["Server Mods",["Deployable Bike", "Self Bloodbag", "Tow/Lift", "Suicide", "Safe Zones", "and more!"],"#33b5e5"],
         ["Website",["Draconet.net"],"#33b5e5"],
         ["Teamspeak",["ts.draconet.net", "Private Rooms Available"],"#33b5e5"],
-        ["Special Thanks To",["All of Our Donators!"],"#33b5e5"],
-        ["Warning",["Changing skins can cause character desync/glitches. This is a bug with Epoch 1.0.5.1 , not the server. We are looking into a fix."],"#ff4444"],
-        ["Warning",["Bases must be maintained every 14 days (free).", "Tier 2 bases (cinder) are indestructible.", "Vehicles left in trader cities through restarts are <t color='#ff4444'>DELETED</t>!","Mission vehicles do <t color='#ff4444'>NOT</t> save with server restarts!"],"#ff4444"]
+        ["Warning",["Vehicles left in trader cities through restarts are <t color='#ff4444'>DELETED</t>!","Mission vehicles do <t color='#ff4444'>NOT</t> save with server restarts!"],"#ff4444"]
     ];
 
     {
