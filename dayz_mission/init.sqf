@@ -152,6 +152,9 @@ call compile preprocessFileLineNumbers "overwrites\fast_trading\init.sqf";
 // slow zombies
 call compile preprocessFileLineNumbers "overwrites\slow_zombies\init.sqf";
 
+// scrolling credits
+call compile preprocessFileLineNumbers "addons\credits\init.sqf";
+
 // service point
 if(!isServer) then {execVM "addons\service_point\service_point.sqf";};
 
@@ -165,5 +168,8 @@ espawn = compile preprocessFileLineNumbers "spawn\spawn.sqf";
 waitUntil {!isNil "dayzPlayerLogin"};
 waitUntil {count dayzPlayerLogin > 0};
 if ((!isDedicated) && (dayzPlayerLogin select 4)) then {call espawn;};
+
+//Radio Communication Script
+execVM "addons\RC\init.sqf";
 
 //### END INSERTED CODE: load addons

@@ -1,6 +1,4 @@
-##version 3.1.0 -- FINAL (7/19/2014) 
-
-	(06/09/2015) Added Support for Overpoch
+##version 3.2.0 -- (7/14/2015) 
 
 FEATURES
 ========
@@ -34,3 +32,23 @@ FEATURES
 + Epoch Mission System 0.3 (Fuchs/defents edit)
 + Loot Spawn Tweaks (no more running away from buildings - mudzereli)
 + Weapon Attachment Mod (mudzereli)
++ Radio Communication (ilikepizza)
++ Credits
+
+
+Setings for infistar
+========
+AHconfig.sqf
+
+/*  Break Functions ?     */  BHF =  true;
+    And set it to:
+/*  Break Functions ?     */  BHF =  false;
+
+Changelog
+========
+
+3.2.0 (14-07-2015)
+	Added Radio Communication, Credits
+
+3.1.0 (06/09/2015)
+	Added Support for Overpoch
