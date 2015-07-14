@@ -21,7 +21,7 @@ if (DZAI_staticAI) then {
 	//["DZAI_Kamenka",[0,1],[],0] call DZAI_static_spawn;
 	//["DZAI_Komarovo",[0,1],[],0] call DZAI_static_spawn;
 	//["DZAI_Balota",[0,1],[],0] call DZAI_static_spawn;
-	["DZAI_BalotaAirstrip",[4,8],['Balota1','Balota2','Balota3','Balota4','Balota5'],1] call DZAI_static_spawn;
+	["DZAI_BalotaAirstrip",[1,2],['Balota1','Balota2','Balota3','Balota4','Balota5'],1] call DZAI_static_spawn;
 	//["DZAI_Cherno1",[1,2],[],1] call DZAI_static_spawn;
 	//["DZAI_Cherno2",[1,1],[],0] call DZAI_static_spawn;
 	//["DZAI_Cherno3",[1,1],[],0] call DZAI_static_spawn;
@@ -45,7 +45,7 @@ if (DZAI_staticAI) then {
 	//["DZAI_Berezino4",[2,1],[],1] call DZAI_static_spawn;
 	//["DZAI_Khelm",[0,1],[],1] call DZAI_static_spawn;
 	//["DZAI_Olsha",[0,1],[],1] call DZAI_static_spawn;
-	["DZAI_NEAF",[4,8],['NEAF1','NEAF2','NEAF3','NEAF4','NEAF5'],2] call DZAI_static_spawn;
+	["DZAI_NEAF",[1,2],['NEAF1','NEAF2','NEAF3','NEAF4','NEAF5'],2] call DZAI_static_spawn;
 	//["DZAI_Krasnostav",[1,1],[],2] call DZAI_static_spawn;
 	//["DZAI_Gvozdno",[0,2],[],2] call DZAI_static_spawn;
 	//["DZAI_Pavlovo",[0,1],[],0] call DZAI_static_spawn;
@@ -81,12 +81,12 @@ if (DZAI_staticAI) then {
 	//["DZAI_Lopatino",[0,2],[],2] call DZAI_static_spawn;
 	//["DZAI_DevilsCastle",[2,2],['DevilsCastle','DevilsCastle2','Devils3','Devils4'],1] call DZAI_static_spawn;
 	//["DZAI_Grishino",[1,2],[],2] call DZAI_static_spawn;
-	["DZAI_NWAF2",[3,0],[],3] call DZAI_static_spawn;
-	["DZAI_NWAF3",[3,0],[],3] call DZAI_static_spawn;
-	["DZAI_NWAF4",[2,1],['NWAF4_1','NWAF4_2','NWAF4_3','NWAF4_4'],2] call DZAI_static_spawn;
-	["DZAI_NWAF5",[2,1],['NWAF5_1','NWAF5_2','NWAF5_3','NWAF5_4'],2] call DZAI_static_spawn;
-	["DZAI_NWAF6",[2,1],['NWAF6_1','NWAF6_2','NWAF6_3','NWAF6_4'],2] call DZAI_static_spawn;
-	["DZAI_NWAF7",[2,1],['NWAF7_1','NWAF7_2','NWAF7_3','NWAF7_4'],2] call DZAI_static_spawn;
+	["DZAI_NWAF2",[1,0],[],3] call DZAI_static_spawn;
+	["DZAI_NWAF3",[1,0],[],3] call DZAI_static_spawn;
+	//["DZAI_NWAF4",[2,1],['NWAF4_1','NWAF4_2','NWAF4_3','NWAF4_4'],2] call DZAI_static_spawn;
+	//["DZAI_NWAF5",[2,1],['NWAF5_1','NWAF5_2','NWAF5_3','NWAF5_4'],2] call DZAI_static_spawn;
+	//["DZAI_NWAF6",[2,1],['NWAF6_1','NWAF6_2','NWAF6_3','NWAF6_4'],2] call DZAI_static_spawn;
+	//["DZAI_NWAF7",[2,1],['NWAF7_1','NWAF7_2','NWAF7_3','NWAF7_4'],2] call DZAI_static_spawn;
 };
 
 #include "custom_markers\cust_markers_chernarus.sqf"
